@@ -1,0 +1,248 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+/* === MOBILE THREE.JS BACKGROUND OPTIMIZATIONS === */
+@media (max-width: 768px) {
+  /* Ensure Three.js background doesn't interfere with mobile text readability */
+  body {
+    background: #000000 !important; /* Solid fallback for better performance */
+  }
+  
+  /* Enhanced text contrast over animated background */
+  .mobile-app * {
+    text-shadow: 0 1px 3px rgba(0, 0, 0, 0.8) !important;
+  }
+  
+  /* Ensure mobile headers are highly readable */
+  .mobile-hero-title,
+  .mobile-services-title,
+  .mobile-contact-title {
+    text-shadow: 0 2px 8px rgba(0, 0, 0, 0.9) !important;
+    background: linear-gradient(135deg, #ffffff 0%, #f0f0f0 100%) !important;
+    background-clip: text !important;
+    -webkit-background-clip: text !important;
+    -webkit-text-fill-color: transparent !important;
+  }
+  
+  /* Mobile body text readability enhancement */
+  .mobile-hero-subtitle,
+  .mobile-services-subtitle,
+  .mobile-service-description,
+  .mobile-solution-description {
+    background: rgba(0, 0, 0, 0.4) !important;
+    border-radius: 8px !important;
+    padding: 8px 12px !important;
+    backdrop-filter: blur(8px) !important;
+  }
+}
+
+/* Mobile-first responsive optimizations */
+@media (max-width: 768px) {
+  /* Hide complex service icons on mobile for cleaner experience */
+  .service-image {
+    display: none !important;
+  }
+  
+  /* Reduce gaps between services on mobile */
+  .service-item {
+    margin-bottom: 2rem !important;
+  }
+  
+  /* Reduce service content padding */
+  .service-content {
+    padding: 1rem 0.5rem !important;
+    text-align: center !important;
+  }
+  
+  /* Reduce feature grid gaps */
+  .features-grid {
+    gap: 0.5rem !important;
+    margin-top: 1rem !important;
+  }
+  
+  /* Reduce service section padding */
+  .services-section {
+    padding: 2rem 0 !important;
+  }
+
+  /* Mobile navigation */
+  .mobile-menu-button::after {
+    content: "MENU" !important;
+  }
+
+  .mobile-menu-button.is-open::after {
+    content: "CLOSE" !important;
+  }
+
+  /* Container responsive adjustments */
+  section {
+    padding-left: 16px !important;
+    padding-right: 16px !important;
+  }
+
+  /* Three.js background mobile optimization */
+  .threejs-background {
+    opacity: 0.6 !important;
+    filter: blur(0.5px) !important;
+    transform: scale(0.9) !important;
+  }
+
+  /* Mobile text readability enhancements */
+  .hero-title, .hero-subtitle {
+    text-shadow: 0 2px 8px rgba(0, 0, 0, 0.8) !important;
+  }
+
+  /* Mobile Service Section Optimizations */
+  /* Mobile Navigation Logo */
+  .logo {
+    display: block !important;
+    max-height: 2.5rem !important;
+    width: auto !important;
+  }
+  
+  /* Mobile Button Optimization */
+  button {
+    min-height: 44px !important;
+    padding: 0.75rem 1.5rem !important;
+    font-size: 16px !important;
+  }
+  
+  /* Mobile Form Elements */
+  input, select, textarea {
+    font-size: 16px !important;
+    min-height: 44px !important;
+    padding: 0.75rem 1rem !important;
+  }
+  
+  /* === COMPREHENSIVE MOBILE OPTIMIZATIONS === */
+  
+  /* Prevent horizontal scroll */
+  html, body {
+    overflow-x: hidden !important;
+    width: 100% !important;
+  }
+  
+  /* Mobile hero section */
+  .hero-section {
+    min-height: auto !important;
+    padding: 3rem 1rem !important;
+  }
+  
+  /* Mobile service cards */
+  .service-card {
+    padding: 1.5rem !important;
+    margin-bottom: 1rem !important;
+  }
+  
+  /* Hide service icons on mobile */
+  .service-icon-wrapper {
+    display: none !important;
+  }
+  
+  /* Mobile solutions section */
+  .solution-card {
+    padding: 1rem !important;
+    margin-bottom: 0.75rem !important;
+  }
+  
+  /* Mobile contact form */
+  .contact-form {
+    padding: 1.5rem !important;
+  }
+  
+  /* Mobile footer adjustments */
+  footer {
+    padding: 1.5rem 1rem !important;
+  }
+  
+  /* Prevent text overflow */
+  * {
+    word-wrap: break-word !important;
+    overflow-wrap: break-word !important;
+  }
+  
+  /* Mobile touch targets */
+  .touch-target {
+    min-height: 44px !important;
+    min-width: 44px !important;
+  }
+  
+  /* Mobile testimonial section */
+  .testimonial-card {
+    padding: 1.5rem !important;
+  }
+  
+  /* Mobile stats grid */
+  .stats-container {
+    gap: 0.5rem !important;
+  }
+  
+  /* Disable animations on mobile for performance */
+  *, *::before, *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+  }
+  
+  /* Mobile navigation menu */
+  .mobile-nav {
+    background: rgba(0, 0, 0, 0.95) !important;
+    backdrop-filter: blur(10px) !important;
+  }
+  
+  /* Mobile text containers */
+  .mobile-text-container {
+    max-width: 100% !important;
+    padding: 0 !important;
+  }
+  
+  /* Mobile grid adjustments */
+  .mobile-grid {
+    grid-template-columns: 1fr !important;
+    gap: 1rem !important;
+  }
+  
+  /* Mobile button styles */
+  .mobile-btn {
+    width: 100% !important;
+    font-size: 1rem !important;
+    padding: 0.875rem !important;
+  }
+  
+  /* Ensure images don't overflow */
+  img {
+    max-width: 100% !important;
+    height: auto !important;
+  }
+  
+  /* Mobile padding adjustments */
+  .mobile-padding {
+    padding: 1rem !important;
+  }
+  
+  /* Prevent zoom on input focus */
+  input, select, textarea {
+    font-size: 16px !important;
+  }
+  
+  /* Mobile scroll behavior */
+  html {
+    scroll-behavior: smooth !important;
+    -webkit-overflow-scrolling: touch !important;
+  }
+}
+
+/* Desktop/tablet - keep everything as is */
+@media (min-width: 769px) {
+  .threejs-background {
+    opacity: 1 !important;
+    filter: none !important;
+    transform: none !important;
+  }
+  
+  /* Ensure desktop styles remain unchanged */
+  .service-icon-wrapper {
+    display: block !important;
+  }
+}
