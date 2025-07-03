@@ -224,7 +224,7 @@ const Navigation: React.FC = () => {
           style={{ cursor: 'pointer' }}
         >
           <img 
-            src="/t (1).png" 
+            src="/logo.png" 
             alt="INSURX Logo" 
             className="h-8 sm:h-10 lg:h-12 w-auto object-contain logo"
           />

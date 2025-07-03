@@ -35,7 +35,7 @@ const LoadingPage: React.FC<LoadingPageProps> = ({
     <div className="fixed inset-0 z-[9999] bg-black flex items-center justify-center">
       <div className="flex flex-col items-center justify-center">
         
-        {/* Logo - Smaller and more professional */}
+        {/* Logo - Using the actual logo image */}
         <motion.div
           className="mb-12"
           initial={{ opacity: 0 }}
@@ -43,7 +43,7 @@ const LoadingPage: React.FC<LoadingPageProps> = ({
           transition={{ duration: 0.5 }}
         >
           <img 
-            src="/t (1).png" 
+            src="/logo.png" 
             alt="INSURX" 
             className="h-8 w-auto object-contain mx-auto"
           />

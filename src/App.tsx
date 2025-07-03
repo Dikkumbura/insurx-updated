@@ -332,7 +332,7 @@ function App() {
                 <div>
                   <div className="flex items-center justify-center sm:justify-start gap-2 mb-3 sm:mb-6">
                     <img 
-                      src="/t (1).png" 
+                      src="/logo.png" 
                       alt="INSURX Logo" 
                       className="h-6 sm:h-12 w-auto object-contain logo"
                     />
