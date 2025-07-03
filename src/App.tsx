@@ -1,6 +1,7 @@
 import React from 'react';
 import { CheckCircle, Users, TrendingUp, BarChart3, Shield } from 'lucide-react';
 import { motion } from 'framer-motion';
+import { useNavigate } from 'react-router-dom';
 import ErrorBoundary from './components/ui/ErrorBoundary';
 import LoadingPage from './components/ui/LoadingPage';
 import Navigation from './components/navigation/Navigation';
@@ -12,6 +13,27 @@ import ResultsSection from './components/results/ResultsSection';
 
 function App() {
   const [isLoading, setIsLoading] = React.useState(true);
+  const navigate = useNavigate();
+
+  React.useEffect(() => {
+    // Load Calendly script if it's not already loaded
+    const script = document.createElement('script');
+    script.src = 'https://assets.calendly.com/assets/external/widget.js';
+    script.async = true;
+    
+    // Check if script is already loaded
+    const existingScript = document.querySelector('script[src="https://assets.calendly.com/assets/external/widget.js"]');
+    if (!existingScript) {
+      document.body.appendChild(script);
+    }
+
+    // Cleanup function
+    return () => {
+      if (script.parentNode) {
+        script.parentNode.removeChild(script);
+      }
+    };
+  }, []);
 
   const handleLoadingComplete = () => {
     setIsLoading(false);
@@ -68,14 +90,17 @@ function App() {
                 </div>
                 
                 <div className="flex flex-col sm:flex-row gap-4 sm:gap-6 justify-center items-center w-full px-4">
-                  <motion.button className="mobile-btn border-2 border-white/60 px-8 sm:px-10 py-3 sm:py-4 rounded-2xl font-body font-semibold text-base sm:text-lg hover:bg-white/20 hover:border-white transition-all duration-300 transform hover:scale-105 touch-target w-full sm:w-auto max-w-xs" style={{
-                    boxShadow: '0 0 15px rgba(0,0,0,0.5), 0 5px 20px rgba(0,0,0,0.3)',
-                    textShadow: '0 0 8px rgba(0,0,0,0.6)',
-                    backdropFilter: 'blur(10px)'
-                  }}
+                  <motion.button 
+                    className="mobile-btn border-2 border-white/60 px-8 sm:px-10 py-3 sm:py-4 rounded-2xl font-body font-semibold text-base sm:text-lg hover:bg-white/20 hover:border-white transition-all duration-300 transform hover:scale-105 touch-target w-full sm:w-auto max-w-xs" 
+                    style={{
+                      boxShadow: '0 0 15px rgba(0,0,0,0.5), 0 5px 20px rgba(0,0,0,0.3)',
+                      textShadow: '0 0 8px rgba(0,0,0,0.6)',
+                      backdropFilter: 'blur(10px)'
+                    }}
                     initial={{ opacity: 0 }}
                     animate={{ opacity: 1 }}
                     transition={{ duration: 1.5, delay: 1.0, ease: "easeOut" }}
+                    onClick={() => navigate('/contact')}
                   >
                     Book a Call
                   </motion.button>
@@ -135,17 +160,17 @@ function App() {
                     description: "See exactly how much money our AI makes you. Real-time dashboards track revenue increases, cost savings, and efficiency gains down to the penny. Prove ROI to stakeholders with concrete numbers."
                   }
                 ].map((solution, index) => (
-                  <div key={index} className="solution-card group flex flex-col sm:flex-row gap-4 sm:gap-6 lg:gap-8 p-4 sm:p-6 lg:p-8 bg-black/40 backdrop-blur-sm border border-white/10 rounded-xl sm:rounded-2xl hover:bg-black/60 transition-all duration-500 hover:transform hover:scale-105 touch-target">
+                  <div key={index} className="solution-card group flex flex-col sm:flex-row gap-4 sm:gap-6 lg:gap-8 p-4 sm:p-6 lg:p-8 bg-black/40 backdrop-blur-sm border border-white/10 rounded-xl sm:rounded-2xl hover:bg-black/60 hover:scale-[1.02] transition-all duration-300 ease-in-out touch-target">
                     <div className="flex-shrink-0">
-                      <div className="text-2xl sm:text-3xl lg:text-4xl font-heading font-black text-gray-600 group-hover:text-gray-400 transition-colors duration-300">
+                                              <div className="text-2xl sm:text-3xl lg:text-4xl font-heading font-black text-gray-600 group-hover:text-gray-400 transition-colors duration-200 ease-out">
                         {solution.number}
                       </div>
-                      <div className="icon-wrapper w-10 h-10 sm:w-12 sm:h-12 bg-white rounded-lg sm:rounded-xl flex items-center justify-center mt-3 sm:mt-4 group-hover:scale-110 transition-transform duration-300 mx-auto sm:mx-0">
+                      <div className="icon-wrapper w-10 h-10 sm:w-12 sm:h-12 bg-white rounded-lg sm:rounded-xl flex items-center justify-center mt-3 sm:mt-4 group-hover:scale-105 transition-transform duration-200 ease-out mx-auto sm:mx-0">
                         <solution.icon className="w-4 h-4 sm:w-6 sm:h-6 text-black" />
                       </div>
                     </div>
                     <div>
-                      <h3 className="text-xl sm:text-2xl font-body font-bold text-white mb-3 sm:mb-4 group-hover:text-gray-200 transition-colors duration-300 text-center sm:text-left">
+                      <h3 className="text-xl sm:text-2xl font-body font-bold text-white mb-3 sm:mb-4 group-hover:text-gray-200 transition-colors duration-200 ease-out text-center sm:text-left">
                         {solution.title}
                       </h3>
                       <p className="font-body text-sm sm:text-base text-gray-400 leading-relaxed mobile-text-container text-center sm:text-left">
@@ -231,7 +256,7 @@ function App() {
                   </h2>
                   
                   <p className="text-base sm:text-lg lg:text-xl font-body text-gray-400 leading-relaxed mb-8 sm:mb-12 mobile-text-container">
-                    Every day you wait is revenue lost to agencies already leveraging AI. Join forward-thinking insurance professionals who've transformed their operations and are dominating their markets.
+                    Every day you wait is revenue lost to agencies already leveraging AI. Schedule your personalized strategy session and discover exactly how our solutions will transform your agency.
                   </p>
                   
                   <div className="stats-container grid grid-cols-3 gap-3 sm:gap-6 lg:gap-8">
@@ -257,67 +282,12 @@ function App() {
                 </div>
                 
                 <div className="bg-black/50 backdrop-blur-sm border border-white/10 rounded-2xl sm:rounded-3xl p-6 sm:p-8 lg:p-10">
-                  <form className="space-y-4 sm:space-y-6">
-                    <div className="grid grid-cols-1 md:grid-cols-2 gap-4 sm:gap-6">
-                      <div>
-                        <input 
-                          type="text" 
-                          placeholder="First Name" 
-                          className="w-full font-body bg-white/10 border border-white/20 rounded-lg sm:rounded-xl px-4 sm:px-6 py-3 sm:py-4 text-white placeholder-gray-400 focus:border-white focus:outline-none focus:ring-2 focus:ring-white/20 transition-all duration-300 text-base touch-target"
-                        />
-                      </div>
-                      <div>
-                        <input 
-                          type="text" 
-                          placeholder="Last Name" 
-                          className="w-full font-body bg-white/10 border border-white/20 rounded-lg sm:rounded-xl px-4 sm:px-6 py-3 sm:py-4 text-white placeholder-gray-400 focus:border-white focus:outline-none focus:ring-2 focus:ring-white/20 transition-all duration-300 text-base touch-target"
-                        />
-                      </div>
-                    </div>
-                    
-                    <div>
-                      <input 
-                        type="email" 
-                        placeholder="Email Address" 
-                        className="w-full font-body bg-white/10 border border-white/20 rounded-lg sm:rounded-xl px-4 sm:px-6 py-3 sm:py-4 text-white placeholder-gray-400 focus:border-white focus:outline-none focus:ring-2 focus:ring-white/20 transition-all duration-300 text-base touch-target"
-                      />
-                    </div>
-                    
-                    <div>
-                      <input 
-                        type="text" 
-                        placeholder="Company Name" 
-                        className="w-full font-body bg-white/10 border border-white/20 rounded-lg sm:rounded-xl px-4 sm:px-6 py-3 sm:py-4 text-white placeholder-gray-400 focus:border-white focus:outline-none focus:ring-2 focus:ring-white/20 transition-all duration-300 text-base touch-target"
-                      />
-                    </div>
-                    
-                    <div>
-                      <select className="w-full font-body bg-white/10 border border-white/20 rounded-lg sm:rounded-xl px-4 sm:px-6 py-3 sm:py-4 text-white focus:border-white focus:outline-none focus:ring-2 focus:ring-white/20 transition-all duration-300 text-base touch-target">
-                        <option value="" className="font-body text-black">Select Service Interest</option>
-                        <option value="chat" className="font-body text-black">AI Chat Agents</option>
-                        <option value="voice" className="font-body text-black">AI Voice Agents</option>
-                        <option value="underwriting" className="font-body text-black">AI Underwriting</option>
-                        <option value="claims" className="font-body text-black">AI Claims Processing</option>
-                        <option value="leads" className="font-body text-black">AI Lead Re-activation</option>
-                        <option value="all" className="font-body text-black">All Solutions</option>
-                      </select>
-                    </div>
-                    
-                    <div>
-                      <textarea 
-                        placeholder="Tell us about your specific needs..." 
-                        rows={3}
-                        className="w-full font-body bg-white/10 border border-white/20 rounded-lg sm:rounded-xl px-4 sm:px-6 py-3 sm:py-4 text-white placeholder-gray-400 focus:border-white focus:outline-none focus:ring-2 focus:ring-white/20 transition-all duration-300 resize-none text-base touch-target"
-                      ></textarea>
-                    </div>
-                    
-                    <button 
-                      type="submit" 
-                      className="w-full font-body bg-white text-black py-3 sm:py-4 rounded-lg sm:rounded-xl font-bold text-base sm:text-lg hover:bg-gray-200 transition-all duration-300 transform hover:scale-105 hover:-translate-y-1 touch-target mobile-btn"
-                    >
-                      Claim Your Competitive Advantage
-                    </button>
-                  </form>
+                  {/* Calendly inline widget */}
+                  <div 
+                    className="calendly-inline-widget" 
+                    data-url="https://calendly.com/kavindul755/lead-gen-system-break-down" 
+                    style={{ minWidth: '320px', height: '700px' }}
+                  ></div>
                 </div>
               </div>
             </div>

@@ -1,10 +1,13 @@
 import React from 'react';
 import { motion } from 'framer-motion';
 import { ArrowRight, Target, Eye, Heart, Users } from 'lucide-react';
+import { useNavigate } from 'react-router-dom';
 import { ThreeJSHero } from '../components/ui/ThreeJSHero';
 import Navigation from '../components/navigation/Navigation';
 
 const About: React.FC = () => {
+  const navigate = useNavigate();
+  
   return (
     <div className="min-h-screen text-white relative">
       {/* Solid Black Background Layer - Bottommost */}
@@ -240,6 +243,7 @@ const About: React.FC = () => {
                     className="inline-flex items-center gap-3 bg-white text-black px-8 py-4 rounded-xl font-body font-bold text-lg hover:bg-gray-200 transition-all duration-300 transform hover:scale-105"
                     whileHover={{ scale: 1.05 }}
                     whileTap={{ scale: 0.95 }}
+                    onClick={() => navigate('/contact')}
                   >
                     Get My Custom ROI Analysis
                     <ArrowRight className="w-5 h-5" />

@@ -177,9 +177,7 @@ const CTAButton = styled(motion.button)`
 const navigationItems: NavigationItem[] = [
   { id: 'home', label: 'Home', href: '/' },
   { id: 'about', label: 'About', href: '/about' },
-  { id: 'services', label: 'Services', href: '#services' },
-  { id: 'solutions', label: 'Solutions', href: '#solutions' },
-  { id: 'contact', label: 'Contact', href: '#contact' }
+  { id: 'contact', label: 'Contact', href: '/contact' }
 ];
 
 const Navigation: React.FC = () => {
@@ -226,7 +224,7 @@ const Navigation: React.FC = () => {
           <img 
             src="/logo.png" 
             alt="INSURX Logo" 
-            className="h-8 sm:h-10 lg:h-12 w-auto object-contain logo"
+            className="h-10 sm:h-12 lg:h-14 w-auto object-contain logo"
           />
         </Logo>
 
@@ -249,7 +247,7 @@ const Navigation: React.FC = () => {
           <CTAButton
             whileHover={{ scale: 1.05 }}
             whileTap={{ scale: 0.95 }}
-            onClick={() => handleNavClick('#contact')}
+            onClick={() => handleNavClick('/contact')}
           >
             Get Started
           </CTAButton>
@@ -287,7 +285,7 @@ const Navigation: React.FC = () => {
               </NavLink>
             ))}
             <CTAButton
-              onClick={() => handleNavClick('#contact')}
+              onClick={() => handleNavClick('/contact')}
               style={{ marginTop: '1rem', width: '100%' }}
             >
               Get Started
