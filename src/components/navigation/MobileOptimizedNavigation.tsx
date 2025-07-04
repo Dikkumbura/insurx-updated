@@ -59,7 +59,7 @@ const MobileOptimizedNavigation: React.FC = () => {
   const containerClasses = `
     w-full px-4 sm:px-6 lg:px-8
     flex items-center justify-between
-    ${isMobile ? 'h-12' : isTablet ? 'h-18' : 'h-20'}
+    ${isMobile ? 'h-10' : isTablet ? 'h-18' : 'h-20'}
   `;
 
   const logoClasses = `
@@ -70,9 +70,8 @@ const MobileOptimizedNavigation: React.FC = () => {
   `;
 
   const logoImageClasses = `
-    object-contain
-    ${isMobile ? 'h-4' : isTablet ? 'h-10' : 'h-12'}
-    w-auto
+    object-contain w-auto
+    ${isMobile ? 'h-6' : isTablet ? 'h-10' : 'h-12'}
   `;
 
   return (
@@ -90,6 +89,7 @@ const MobileOptimizedNavigation: React.FC = () => {
             src="/logo.png" 
             alt="INSURX Logo" 
             className={logoImageClasses}
+            style={isMobile ? { maxHeight: '12px' } : {}}
           />
         </motion.div>
 
@@ -202,7 +202,7 @@ const MobileOptimizedNavigation: React.FC = () => {
             {/* Menu Panel */}
             <motion.div
               className="
-                fixed top-14 left-4 right-4 z-50
+                fixed top-12 left-4 right-4 z-50
                 bg-black border border-white/30 rounded-xl
                 p-6 shadow-2xl
               "
