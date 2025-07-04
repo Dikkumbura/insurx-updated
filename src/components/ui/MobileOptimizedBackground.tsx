@@ -10,7 +10,7 @@ const MobileOptimizedBackground: React.FC<MobileOptimizedBackgroundProps> = ({ c
   const { isMobile, isLowEndDevice, hasReducedMotion } = useMobileDetection();
 
   // Use static background for mobile, low-end devices, or users who prefer reduced motion
-  const useStaticBackground = isMobile || isLowEndDevice || hasReducedMotion;
+  const useStaticBackground = isLowEndDevice || hasReducedMotion;
 
   return (
     <>
@@ -57,7 +57,7 @@ const MobileOptimizedBackground: React.FC<MobileOptimizedBackgroundProps> = ({ c
           />
         </div>
       ) : (
-        /* Desktop Three.js Background */
+        /* Three.js Background for all devices */
         <ThreeJSHero />
       )}
       

@@ -89,7 +89,7 @@ const MobileOptimizedNavigation: React.FC = () => {
             src="/logo.png" 
             alt="INSURX Logo" 
             className={logoImageClasses}
-            style={isMobile ? { maxHeight: '18px' } : {}}
+            style={isMobile ? { maxHeight: '24px' } : {}}
           />
         </motion.div>
 
@@ -135,21 +135,21 @@ const MobileOptimizedNavigation: React.FC = () => {
             onClick={handleMobileMenuToggle}
             className="
               md:hidden flex items-center justify-center
-              w-10 h-10 rounded-lg
-              border border-white/40 hover:border-white/60 active:border-white/80
-              hover:bg-white/10 active:bg-white/20
+              px-3 py-2 rounded-lg
+              bg-white/10 hover:bg-white/20 active:bg-white/30
+              border border-white/30 hover:border-white/50
               transition-all duration-200
               focus:outline-none
               touch-manipulation
             "
             aria-expanded={isMobileMenuOpen}
             aria-label="Toggle mobile menu"
-            style={{ minHeight: '44px', minWidth: '44px' }}
+            style={{ minHeight: '40px', minWidth: '60px' }}
           >
             {isMobileMenuOpen ? (
-              <X className="w-5 h-5 text-white" />
+              <span className="text-white font-medium text-sm">CLOSE</span>
             ) : (
-              <Menu className="w-5 h-5 text-white" />
+              <span className="text-white font-medium text-sm">MENU</span>
             )}
           </button>
         )}
@@ -203,7 +203,7 @@ const MobileOptimizedNavigation: React.FC = () => {
             {/* Menu Panel */}
             <motion.div
               className="
-                fixed top-14 left-4 right-4 z-50
+                fixed top-12 left-4 right-4 z-50
                 bg-black border border-white/30 rounded-xl
                 p-6 shadow-2xl
               "

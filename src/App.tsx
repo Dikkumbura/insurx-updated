@@ -58,9 +58,9 @@ function App() {
           <MobileOptimizedNavigation />
 
           {/* Hero Section */}
-          <section id="home" className="min-h-[80vh] sm:min-h-screen flex items-start justify-center relative z-10 px-4 sm:px-6 pt-14 sm:pt-24">
+<section id="home" className="min-h-[80vh] sm:min-h-screen flex items-center justify-center relative z-10 px-4 sm:px-6">
             {/* Content Overlay */}
-                          <div className="w-full flex flex-col items-center justify-center text-center relative z-20 px-4 sm:px-6 lg:px-8 mt-8 sm:mt-12">
+                          <div className="w-full flex flex-col items-center justify-center text-center relative z-20 px-4 sm:px-6 lg:px-8">
               {/* Hero Text */}
               <div className="text-center">
                 <div className="mb-6 sm:mb-8">
