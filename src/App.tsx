@@ -6,9 +6,11 @@ import ErrorBoundary from './components/ui/ErrorBoundary';
 import LoadingPage from './components/ui/LoadingPage';
 import Navigation from './components/navigation/Navigation';
 import Section from './components/ui/Section';
-import { ThreeJSHero } from './components/ui/ThreeJSHero';
+import MobileOptimizedBackground from './components/ui/MobileOptimizedBackground';
+import MobileOptimizedText from './components/ui/MobileOptimizedText';
+import MobilePerformanceOptimizer from './components/ui/MobilePerformanceOptimizer';
 import { ServicesProvider } from './components/services/ServicesContext';
-import DynamicServicesSection from './components/services/DynamicServicesSection';
+import MobileOptimizedServicesSection from './components/services/MobileOptimizedServicesSection';
 import ResultsSection from './components/results/ResultsSection';
 
 function App() {
@@ -49,17 +51,10 @@ function App() {
 
   return (
     <ErrorBoundary>
-      <ServicesProvider>
-        {/* Solid Black Background Layer - Bottommost */}
-        <div className="fixed inset-0 w-full h-full bg-black z-[-20]"></div>
-        
-        {/* Fixed Three.js Background Animation */}
-        <ThreeJSHero />
-        
-        {/* Global Blurred Overlay */}
-        <div className="fixed inset-0 bg-black/60 backdrop-blur-sm z-[-10]"></div>
-        
-        <div className="min-h-screen text-white relative">
+      <MobilePerformanceOptimizer>
+        <ServicesProvider>
+          <MobileOptimizedBackground>
+            <div className="min-h-screen text-white relative">
           <Navigation />
 
           {/* Hero Section */}
@@ -69,24 +64,32 @@ function App() {
               {/* Hero Text */}
               <div className="text-center">
                 <div className="mb-6 sm:mb-8">
-                  <motion.h1 className="hero-title text-3xl sm:text-5xl md:text-6xl lg:text-7xl xl:text-8xl 2xl:text-9xl font-brand font-black mb-3 sm:mb-4 leading-none text-white" style={{
-                    textShadow: '0 0 20px rgba(0,0,0,0.8), 0 0 40px rgba(0,0,0,0.6)'
-                  }}
+                  <motion.div
                     initial={{ opacity: 0 }}
                     animate={{ opacity: 1 }}
                     transition={{ duration: 1.5, ease: "easeOut" }}
                   >
-                    INSURX
-                  </motion.h1>
-                  <motion.p className="hero-subtitle text-base sm:text-xl md:text-2xl lg:text-3xl xl:text-4xl font-heading text-gray-200 font-light italic px-2" style={{
-                    textShadow: '0 0 15px rgba(0,0,0,0.8)'
-                  }}
+                    <MobileOptimizedText
+                      variant="hero-title"
+                      as="h1"
+                      className="hero-title mb-3 sm:mb-4 font-brand font-black"
+                    >
+                      INSURX
+                    </MobileOptimizedText>
+                  </motion.div>
+                  <motion.div
                     initial={{ opacity: 0 }}
                     animate={{ opacity: 1 }}
                     transition={{ duration: 1.5, delay: 0.5, ease: "easeOut" }}
                   >
-                    The Future of Insurance
-                  </motion.p>
+                    <MobileOptimizedText
+                      variant="hero-subtitle"
+                      as="p"
+                      className="hero-subtitle px-2"
+                    >
+                      The Future of Insurance
+                    </MobileOptimizedText>
+                  </motion.div>
                 </div>
                 
                 <div className="flex flex-col sm:flex-row gap-4 sm:gap-6 justify-center items-center w-full px-4">
@@ -116,8 +119,8 @@ function App() {
             </div>
           </section>
 
-          {/* Dynamic Services Section */}
-          <DynamicServicesSection />
+          {/* Mobile Optimized Services Section */}
+          <MobileOptimizedServicesSection />
 
           {/* Solutions Section */}
           <section id="solutions" className="py-12 sm:py-20 lg:py-24 relative z-10">
@@ -125,12 +128,20 @@ function App() {
             <div className="absolute inset-0 bg-black/60 backdrop-blur-sm"></div>
             <div className="w-full px-4 sm:px-6 lg:px-12">
               <div className="text-center mb-12 sm:mb-16 lg:mb-20 relative z-10">
-                <h2 className="text-2xl sm:text-4xl md:text-5xl lg:text-6xl font-heading font-bold mb-4 sm:mb-6 text-white">
+                <MobileOptimizedText
+                  variant="section-title"
+                  as="h2"
+                  className="mb-4 sm:mb-6 font-heading font-bold"
+                >
                   Why Smart Agencies Choose INSURX
-                </h2>
-                <p className="text-base sm:text-lg lg:text-xl font-body text-gray-400 max-w-5xl mx-auto leading-relaxed mobile-text-container px-4">
+                </MobileOptimizedText>
+                <MobileOptimizedText
+                  variant="section-subtitle"
+                  as="p"
+                  className="max-w-5xl mx-auto px-4"
+                >
                   While your competitors struggle with manual processes, forward-thinking agencies are closing more deals, reducing costs, and scaling faster than ever before
-                </p>
+                </MobileOptimizedText>
               </div>
 
               <div className="grid grid-cols-1 lg:grid-cols-2 gap-6 sm:gap-8 max-w-none relative z-10">
@@ -339,7 +350,9 @@ function App() {
           {/* Extra padding to ensure no gap at bottom */}
           <div className="h-2 sm:h-4 lg:h-6 bg-black/80 relative z-10"></div>
         </div>
+        </MobileOptimizedBackground>
       </ServicesProvider>
+      </MobilePerformanceOptimizer>
     </ErrorBoundary>
   );
 }
