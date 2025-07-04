@@ -59,7 +59,7 @@ const MobileOptimizedNavigation: React.FC = () => {
   const containerClasses = `
     w-full px-4 sm:px-6 lg:px-8
     flex items-center justify-between
-    ${isMobile ? 'h-16' : isTablet ? 'h-18' : 'h-20'}
+    ${isMobile ? 'h-14' : isTablet ? 'h-18' : 'h-20'}
   `;
 
   const logoClasses = `
@@ -71,7 +71,7 @@ const MobileOptimizedNavigation: React.FC = () => {
 
   const logoImageClasses = `
     object-contain
-    ${isMobile ? 'h-8' : isTablet ? 'h-10' : 'h-12'}
+    ${isMobile ? 'h-6' : isTablet ? 'h-10' : 'h-12'}
     w-auto
   `;
 
@@ -135,18 +135,20 @@ const MobileOptimizedNavigation: React.FC = () => {
             onClick={handleMobileMenuToggle}
             className="
               md:hidden flex items-center justify-center
-              w-11 h-11 rounded-lg
-              bg-white/10 hover:bg-white/20
-              transition-colors duration-300
-              focus:outline-none focus:ring-2 focus:ring-white/30
+              w-10 h-10 rounded-lg
+              bg-white/20 hover:bg-white/30 active:bg-white/40
+              transition-colors duration-200
+              focus:outline-none
+              touch-manipulation
             "
             aria-expanded={isMobileMenuOpen}
             aria-label="Toggle mobile menu"
+            style={{ minHeight: '44px', minWidth: '44px' }}
           >
             {isMobileMenuOpen ? (
-              <X className="w-5 h-5 text-white" />
+              <X className="w-6 h-6 text-white" />
             ) : (
-              <Menu className="w-5 h-5 text-white" />
+              <Menu className="w-6 h-6 text-white" />
             )}
           </button>
         )}
@@ -200,9 +202,8 @@ const MobileOptimizedNavigation: React.FC = () => {
             {/* Menu Panel */}
             <motion.div
               className="
-                fixed top-20 left-4 right-4 z-50
-                bg-black/95 backdrop-blur-lg
-                border border-white/20 rounded-xl
+                fixed top-16 left-4 right-4 z-50
+                bg-black border border-white/30 rounded-xl
                 p-6 shadow-2xl
               "
               initial={{ opacity: 0, y: -20, scale: 0.95 }}
@@ -219,12 +220,14 @@ const MobileOptimizedNavigation: React.FC = () => {
                     key={item.id}
                     onClick={() => handleNavClick(item.href)}
                     className="
-                      w-full text-left py-3 px-4
+                      w-full text-left py-4 px-4
                       text-white font-body font-medium text-lg
-                      hover:bg-white/10 rounded-lg
-                      transition-colors duration-300
+                      hover:bg-white/20 active:bg-white/30 rounded-lg
+                      transition-colors duration-200
                       focus:outline-none focus:bg-white/20
+                      touch-manipulation
                     "
+                    style={{ minHeight: '52px' }}
                     initial={{ opacity: 0, x: -20 }}
                     animate={{ opacity: 1, x: 0 }}
                     transition={{ 
@@ -240,11 +243,12 @@ const MobileOptimizedNavigation: React.FC = () => {
                   onClick={() => handleNavClick('/contact')}
                   className="
                     w-full bg-white text-black font-body font-semibold
-                    py-3 px-6 rounded-lg text-lg
-                    hover:bg-gray-100 transition-colors duration-300
-                    focus:outline-none focus:ring-2 focus:ring-white/30
-                    mt-6
+                    py-4 px-6 rounded-lg text-lg
+                    hover:bg-gray-100 active:bg-gray-200 transition-colors duration-200
+                    focus:outline-none
+                    mt-6 touch-manipulation
                   "
+                  style={{ minHeight: '52px' }}
                   initial={{ opacity: 0, y: 20 }}
                   animate={{ opacity: 1, y: 0 }}
                   transition={{ 
