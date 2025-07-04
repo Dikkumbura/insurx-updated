@@ -59,7 +59,7 @@ const MobileOptimizedNavigation: React.FC = () => {
   const containerClasses = `
     w-full px-4 sm:px-6 lg:px-8
     flex items-center justify-between
-    ${isMobile ? 'h-10' : isTablet ? 'h-18' : 'h-20'}
+    ${isMobile ? 'h-12' : isTablet ? 'h-18' : 'h-20'}
   `;
 
   const logoClasses = `
@@ -89,7 +89,7 @@ const MobileOptimizedNavigation: React.FC = () => {
             src="/logo.png" 
             alt="INSURX Logo" 
             className={logoImageClasses}
-            style={isMobile ? { maxHeight: '12px' } : {}}
+            style={isMobile ? { maxHeight: '18px' } : {}}
           />
         </motion.div>
 
@@ -136,8 +136,9 @@ const MobileOptimizedNavigation: React.FC = () => {
             className="
               md:hidden flex items-center justify-center
               w-10 h-10 rounded-lg
-              bg-white/20 hover:bg-white/30 active:bg-white/40
-              transition-colors duration-200
+              border border-white/40 hover:border-white/60 active:border-white/80
+              hover:bg-white/10 active:bg-white/20
+              transition-all duration-200
               focus:outline-none
               touch-manipulation
             "
@@ -146,9 +147,9 @@ const MobileOptimizedNavigation: React.FC = () => {
             style={{ minHeight: '44px', minWidth: '44px' }}
           >
             {isMobileMenuOpen ? (
-              <X className="w-6 h-6 text-white" />
+              <X className="w-5 h-5 text-white" />
             ) : (
-              <Menu className="w-6 h-6 text-white" />
+              <Menu className="w-5 h-5 text-white" />
             )}
           </button>
         )}
@@ -202,7 +203,7 @@ const MobileOptimizedNavigation: React.FC = () => {
             {/* Menu Panel */}
             <motion.div
               className="
-                fixed top-12 left-4 right-4 z-50
+                fixed top-14 left-4 right-4 z-50
                 bg-black border border-white/30 rounded-xl
                 p-6 shadow-2xl
               "
