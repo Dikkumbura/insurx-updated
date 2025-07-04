@@ -59,7 +59,7 @@ const MobileOptimizedNavigation: React.FC = () => {
   const containerClasses = `
     w-full px-4 sm:px-6 lg:px-8
     flex items-center justify-between
-    ${isMobile ? 'h-14' : isTablet ? 'h-18' : 'h-20'}
+    ${isMobile ? 'h-12' : isTablet ? 'h-18' : 'h-20'}
   `;
 
   const logoClasses = `
@@ -71,7 +71,7 @@ const MobileOptimizedNavigation: React.FC = () => {
 
   const logoImageClasses = `
     object-contain
-    ${isMobile ? 'h-6' : isTablet ? 'h-10' : 'h-12'}
+    ${isMobile ? 'h-4' : isTablet ? 'h-10' : 'h-12'}
     w-auto
   `;
 
@@ -202,7 +202,7 @@ const MobileOptimizedNavigation: React.FC = () => {
             {/* Menu Panel */}
             <motion.div
               className="
-                fixed top-16 left-4 right-4 z-50
+                fixed top-14 left-4 right-4 z-50
                 bg-black border border-white/30 rounded-xl
                 p-6 shadow-2xl
               "
