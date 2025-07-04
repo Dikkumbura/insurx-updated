@@ -350,7 +350,7 @@ const DynamicServicesSection: React.FC = () => {
   return (
     <ServicesContainer ref={containerRef} id="services-section">
       <StickyHeaderContainer ref={headerContainerRef}>
-        <StickyHeader ref={headerRef} $isSticky={isHeaderSticky}>
+        <StickyHeader ref={headerRef} $isSticky={isHeaderSticky} className="sticky-header">
           <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
             <HeaderTitle className="font-heading">
               AI-Powered Solutions
@@ -360,7 +360,7 @@ const DynamicServicesSection: React.FC = () => {
       </StickyHeaderContainer>
 
       {/* Buffer zone */}
-      <ScrollBuffer ref={bufferRef} />
+      <ScrollBuffer ref={bufferRef} className="scroll-buffer" />
 
       <ServicesContent ref={contentRef}>
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative">

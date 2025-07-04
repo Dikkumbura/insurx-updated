@@ -65,7 +65,7 @@ const MobileOptimizedServicesSection: React.FC = () => {
   return (
     <section 
       id="services-section"
-      className="py-12 sm:py-16 relative z-10"
+      className="py-8 sm:py-12 relative z-10"
     >
       {/* Semi-transparent background for readability */}
       <div className="absolute inset-0 bg-black/50 backdrop-blur-sm" />

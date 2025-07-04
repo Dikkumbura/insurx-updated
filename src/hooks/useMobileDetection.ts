@@ -15,6 +15,7 @@ interface MobileDetectionState {
 
 const MOBILE_BREAKPOINT = 768;
 const TABLET_BREAKPOINT = 1024;
+const LARGE_TABLET_BREAKPOINT = 1200;
 
 export const useMobileDetection = (): MobileDetectionState => {
   const [state, setState] = useState<MobileDetectionState>({
@@ -35,8 +36,8 @@ export const useMobileDetection = (): MobileDetectionState => {
       const screenWidth = window.innerWidth;
       const screenHeight = window.innerHeight;
       const isMobile = screenWidth < MOBILE_BREAKPOINT;
-      const isTablet = screenWidth >= MOBILE_BREAKPOINT && screenWidth < TABLET_BREAKPOINT;
-      const isDesktop = screenWidth >= TABLET_BREAKPOINT;
+      const isTablet = screenWidth >= MOBILE_BREAKPOINT && screenWidth < LARGE_TABLET_BREAKPOINT;
+      const isDesktop = screenWidth >= LARGE_TABLET_BREAKPOINT;
       const isLandscape = screenWidth > screenHeight;
       const isPortrait = screenHeight > screenWidth;
       
@@ -99,11 +100,11 @@ export const isMobileDevice = (): boolean => {
 };
 
 export const isTabletDevice = (): boolean => {
-  return window.innerWidth >= MOBILE_BREAKPOINT && window.innerWidth < TABLET_BREAKPOINT;
+  return window.innerWidth >= MOBILE_BREAKPOINT && window.innerWidth < LARGE_TABLET_BREAKPOINT;
 };
 
 export const isDesktopDevice = (): boolean => {
-  return window.innerWidth >= TABLET_BREAKPOINT;
+  return window.innerWidth >= LARGE_TABLET_BREAKPOINT;
 };
 
 export const shouldReduceMotion = (): boolean => {

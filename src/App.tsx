@@ -4,13 +4,13 @@ import { motion } from 'framer-motion';
 import { useNavigate } from 'react-router-dom';
 import ErrorBoundary from './components/ui/ErrorBoundary';
 import LoadingPage from './components/ui/LoadingPage';
-import Navigation from './components/navigation/Navigation';
+import MobileOptimizedNavigation from './components/navigation/MobileOptimizedNavigation';
 import Section from './components/ui/Section';
 import MobileOptimizedBackground from './components/ui/MobileOptimizedBackground';
 import MobileOptimizedText from './components/ui/MobileOptimizedText';
 import MobilePerformanceOptimizer from './components/ui/MobilePerformanceOptimizer';
 import { ServicesProvider } from './components/services/ServicesContext';
-import MobileOptimizedServicesSection from './components/services/MobileOptimizedServicesSection';
+import ResponsiveServicesSection from './components/services/ResponsiveServicesSection';
 import ResultsSection from './components/results/ResultsSection';
 
 function App() {
@@ -55,12 +55,12 @@ function App() {
         <ServicesProvider>
           <MobileOptimizedBackground>
             <div className="min-h-screen text-white relative">
-          <Navigation />
+          <MobileOptimizedNavigation />
 
           {/* Hero Section */}
-          <section id="home" className="min-h-screen flex items-start justify-center relative z-10 px-4 sm:px-6 pt-28 sm:pt-28">
+          <section id="home" className="min-h-screen flex items-start justify-center relative z-10 px-4 sm:px-6 pt-20 sm:pt-24">
             {/* Content Overlay */}
-            <div className="w-full flex flex-col items-center justify-center text-center relative z-20 px-4 sm:px-6 lg:px-8 mt-20 sm:mt-24">
+            <div className="w-full flex flex-col items-center justify-center text-center relative z-20 px-4 sm:px-6 lg:px-8 mt-16 sm:mt-20">
               {/* Hero Text */}
               <div className="text-center">
                 <div className="mb-6 sm:mb-8">
@@ -119,8 +119,8 @@ function App() {
             </div>
           </section>
 
-          {/* Mobile Optimized Services Section */}
-          <MobileOptimizedServicesSection />
+          {/* Responsive Services Section */}
+          <ResponsiveServicesSection />
 
           {/* Solutions Section */}
           <section id="solutions" className="py-12 sm:py-20 lg:py-24 relative z-10">
