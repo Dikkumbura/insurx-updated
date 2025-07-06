@@ -93,8 +93,8 @@ function App() {
                 </div>
                 
                 <div className="flex flex-col sm:flex-row gap-4 sm:gap-6 justify-center items-center w-full px-4">
-                  <motion.button 
-                    className="mobile-btn border-2 border-white/60 px-8 sm:px-10 py-3 sm:py-4 rounded-2xl font-body font-semibold text-base sm:text-lg hover:bg-white/20 hover:border-white transition-all duration-300 transform hover:scale-105 touch-target w-full sm:w-auto max-w-xs" 
+                  <motion.button
+                    className="border-2 border-white/60 px-8 sm:px-10 py-3 sm:py-4 rounded-2xl font-body font-semibold text-base sm:text-lg hover:bg-white/20 hover:border-white transition-all duration-300 transform hover:scale-105 touch-target w-full sm:w-auto max-w-xs min-h-[44px]"
                     style={{
                       boxShadow: '0 0 15px rgba(0,0,0,0.5), 0 5px 20px rgba(0,0,0,0.3)',
                       textShadow: '0 0 8px rgba(0,0,0,0.6)',
@@ -184,7 +184,7 @@ function App() {
                       <h3 className="text-xl sm:text-2xl font-body font-bold text-white mb-3 sm:mb-4 group-hover:text-gray-200 transition-colors duration-200 ease-out text-center sm:text-left">
                         {solution.title}
                       </h3>
-                      <p className="font-body text-sm sm:text-base text-gray-400 leading-relaxed mobile-text-container text-center sm:text-left">
+                      <p className="font-body text-sm sm:text-base text-gray-400 leading-relaxed text-center sm:text-left">
                         {solution.description}
                       </p>
                     </div>
@@ -266,7 +266,7 @@ function App() {
                     <span className="font-heading text-gray-300 block">Don't Get Left Behind</span>
                   </h2>
                   
-                  <p className="text-base sm:text-lg lg:text-xl font-body text-gray-400 leading-relaxed mb-8 sm:mb-12 mobile-text-container">
+                  <p className="text-base sm:text-lg lg:text-xl font-body text-gray-400 leading-relaxed mb-8 sm:mb-12">
                     Every day you wait is revenue lost to agencies already leveraging AI. Schedule your personalized strategy session and discover exactly how our solutions will transform your agency.
                   </p>
                   
@@ -309,17 +309,17 @@ function App() {
             {/* Semi-transparent background for readability */}
             <div className="absolute inset-0 bg-black/80 backdrop-blur-sm"></div>
             <div className="w-full px-4 sm:px-6 lg:px-12 pb-3 sm:pb-6">
-              <div className="mobile-grid grid grid-cols-1 sm:grid-cols-2 gap-2 sm:gap-10 lg:gap-12 mb-3 sm:mb-8 lg:mb-10 relative z-10">
+              <div className="grid grid-cols-1 sm:grid-cols-2 gap-2 sm:gap-10 lg:gap-12 mb-3 sm:mb-8 lg:mb-10 relative z-10">
                 <div>
                   <div className="flex items-center justify-center sm:justify-start gap-2 mb-3 sm:mb-6">
                     <img 
                       src="/logo.png" 
                       alt="INSURX Logo" 
-                      className="h-6 sm:h-12 w-auto object-contain logo"
+                      className="h-6 sm:h-12 w-auto object-contain"
                     />
                   </div>
                   <p className="hidden sm:block font-heading text-gray-400 italic text-sm sm:text-lg text-center sm:text-left">The Future of Insurance</p>
-                  <p className="hidden sm:block font-body text-gray-500 mt-2 sm:mt-4 leading-relaxed text-sm sm:text-base mobile-text-container text-center sm:text-left">
+                  <p className="hidden sm:block font-body text-gray-500 mt-2 sm:mt-4 leading-relaxed text-sm sm:text-base text-center sm:text-left">
                     Revolutionizing the insurance industry with cutting-edge AI automation solutions.
                   </p>
                 </div>

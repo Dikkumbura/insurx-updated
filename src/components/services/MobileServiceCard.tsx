@@ -38,8 +38,8 @@ const MobileServiceCard: React.FC<MobileServiceCardProps> = ({
       y: 0,
       scale: 1,
       transition: {
-        duration: hasReducedMotion ? 0.1 : 0.6,
-        delay: hasReducedMotion ? 0 : index * 0.1,
+        duration: hasReducedMotion ? 0.1 : 0.5, // Reduced duration
+        delay: hasReducedMotion ? 0 : index * 0.08, // Reduced delay
         ease: "easeOut"
       }
     }
@@ -51,8 +51,8 @@ const MobileServiceCard: React.FC<MobileServiceCardProps> = ({
       scale: 1, 
       opacity: 1,
       transition: {
-        duration: hasReducedMotion ? 0.1 : 0.4,
-        delay: hasReducedMotion ? 0 : index * 0.1 + 0.2,
+        duration: hasReducedMotion ? 0.1 : 0.35, // Reduced duration
+        delay: hasReducedMotion ? 0 : index * 0.08 + 0.15, // Adjusted delay
         ease: "easeOut"
       }
     }
@@ -145,8 +145,8 @@ const MobileServiceCard: React.FC<MobileServiceCardProps> = ({
                 opacity: 1, 
                 x: 0,
                 transition: {
-                  duration: hasReducedMotion ? 0.1 : 0.4,
-                  delay: hasReducedMotion ? 0 : index * 0.1 + featureIndex * 0.05 + 0.4,
+                  duration: hasReducedMotion ? 0.1 : 0.3, // Reduced duration
+                  delay: hasReducedMotion ? 0 : index * 0.08 + featureIndex * 0.04 + 0.3, // Adjusted delay
                   ease: "easeOut"
                 }
               } : { opacity: 0, x: hasReducedMotion ? 0 : -20 }}
@@ -180,8 +180,8 @@ const MobileServiceCard: React.FC<MobileServiceCardProps> = ({
             animate={isVisible ? { 
               opacity: 1,
               transition: {
-                duration: hasReducedMotion ? 0.1 : 0.4,
-                delay: hasReducedMotion ? 0 : index * 0.1 + 0.6,
+                duration: hasReducedMotion ? 0.1 : 0.3, // Reduced duration
+                delay: hasReducedMotion ? 0 : index * 0.08 + 0.45, // Adjusted delay
                 ease: "easeOut"
               }
             } : { opacity: 0 }}
