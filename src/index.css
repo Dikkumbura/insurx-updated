@@ -17,10 +17,10 @@
 
 @keyframes mobilePattern {
   0% {
-    background-position: 0 0, 30px 30px, 60px 60px, 90px 90px;
+    background-position: 0 0, 30px 30px; /* Simplified to two positions */
   }
   100% {
-    background-position: 120px 120px, 150px 150px, 180px 180px, 210px 210px;
+    background-position: 120px 120px, 150px 150px; /* Simplified to two positions */
   }
 }
 
@@ -51,53 +51,16 @@
     min-width: 44px !important;
   }
   
-  /* Mobile Button Optimization */
-  button {
-    min-height: 44px !important;
-    padding: 0.75rem 1.5rem !important;
-    font-size: 16px !important;
-  }
-  
-  /* Mobile Form Elements */
-  input, select, textarea {
-    font-size: 16px !important;
-    min-height: 44px !important;
-    padding: 0.75rem 1rem !important;
-  }
-  
   /* Prevent text overflow */
   * {
     word-wrap: break-word !important;
     overflow-wrap: break-word !important;
   }
   
-  /* Mobile logo optimization */
-  .logo {
-    display: block !important;
-    max-height: 3.5rem !important;
-    width: auto !important;
-  }
-  .mobile-grid {
-    grid-template-columns: 1fr !important;
-    gap: 1rem !important;
-  }
-  
-  /* Mobile button styles */
-  .mobile-btn {
-    width: 100% !important;
-    font-size: 1rem !important;
-    padding: 0.875rem !important;
-  }
-  
   /* Ensure images don't overflow */
   img {
     max-width: 100% !important;
     height: auto !important;
-  }
-  
-  /* Mobile padding adjustments */
-  .mobile-padding {
-    padding: 1rem !important;
   }
   
   /* Prevent zoom on input focus */

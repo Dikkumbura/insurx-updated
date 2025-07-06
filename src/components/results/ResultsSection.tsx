@@ -55,13 +55,13 @@ const ResultsSection: React.FC = () => {
           <h2 className="text-xl md:text-5xl font-heading font-bold mb-4 text-white">
             The Numbers Don't Lie
           </h2>
-          <p className="text-sm md:text-lg font-body text-gray-400 max-w-4xl mx-auto mobile-text-container">
+          <p className="text-sm md:text-lg font-body text-gray-400 max-w-4xl mx-auto">
             While competitors struggle with outdated methods, our clients are achieving breakthrough results
           </p>
         </motion.div>
 
         {/* Cards Grid */}
-        <div className="mobile-grid grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-3 md:gap-6 max-w-7xl mx-auto">
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-3 md:gap-6 max-w-7xl mx-auto">
           {results.map((result, index) => {
             const IconComponent = result.icon;
             
@@ -99,7 +99,7 @@ const ResultsSection: React.FC = () => {
                 </h3>
                 
                 {/* Description */}
-                <p className="text-xs md:text-sm font-body text-gray-300 leading-relaxed mobile-text-container">
+                <p className="text-xs md:text-sm font-body text-gray-300 leading-relaxed">
                   {result.description}
                 </p>
               </motion.div>

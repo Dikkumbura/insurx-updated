@@ -92,7 +92,7 @@ const Contact: React.FC = () => {
                   <span className="font-heading text-gray-300 block">Don't Get Left Behind</span>
                 </h2>
                 
-                <p className="text-base sm:text-lg lg:text-xl font-body text-gray-400 leading-relaxed mb-8 sm:mb-12 mobile-text-container">
+                <p className="text-base sm:text-lg lg:text-xl font-body text-gray-400 leading-relaxed mb-8 sm:mb-12">
                   Every day you wait is revenue lost to agencies already leveraging AI. Schedule your personalized strategy session and discover exactly how our solutions will transform your agency.
                 </p>
                 
