@@ -1,4 +1,5 @@
 import React from 'react';
+import { motion } from 'framer-motion';
 import { MessageCircle, Mic, BarChart3, FileCheck, TrendingUp } from 'lucide-react';
 import { useMobileDetection } from '../../hooks/useMobileDetection';
 import DynamicServicesSection from './DynamicServicesSection';
@@ -72,7 +73,13 @@ const MobileOptimizedServicesSection: React.FC = () => {
       
       <div className="relative z-10 px-4 sm:px-6">
         {/* Header */}
-        <div className="text-center mb-8">
+        <motion.div 
+          className="text-center mb-8"
+          initial={{ opacity: 0 }}
+          whileInView={{ opacity: 1 }}
+          transition={{ duration: 0.8, ease: "easeOut" }}
+          viewport={{ once: true }}
+        >
           <MobileOptimizedText
             variant="section-title"
             as="h2"
@@ -88,7 +95,7 @@ const MobileOptimizedServicesSection: React.FC = () => {
             Revolutionary AI tools that transform how insurance agencies operate, 
             letting you focus on growth while technology handles the rest.
           </MobileOptimizedText>
-        </div>
+        </motion.div>
 
         {/* Services Grid */}
         <div className="space-y-6">
@@ -107,33 +114,7 @@ const MobileOptimizedServicesSection: React.FC = () => {
           ))}
         </div>
 
-        {/* Mobile CTA Section */}
-        <div className="mt-12 text-center">
-          <div className="bg-white/3 backdrop-blur-md border border-white/8 rounded-xl p-6">
-            <MobileOptimizedText
-              variant="card-title"
-              as="h3"
-              className="mb-3"
-            >
-              Ready to Transform Your Agency?
-            </MobileOptimizedText>
-            <MobileOptimizedText
-              variant="card-body"
-              as="p"
-              className="mb-6"
-            >
-              See how these AI solutions can revolutionize your insurance business.
-            </MobileOptimizedText>
-            <button className="
-              w-full bg-white text-black font-body font-semibold 
-              py-3 px-6 rounded-lg
-              hover:bg-gray-100 transition-colors duration-300
-              touch-target min-h-[44px]
-            ">
-              Schedule Your Demo
-            </button>
-          </div>
-        </div>
+
       </div>
     </section>
   );

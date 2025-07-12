@@ -128,7 +128,13 @@ function App() {
             {/* Semi-transparent background for readability */}
             <div className="absolute inset-0 bg-black/60 backdrop-blur-sm"></div>
             <div className="w-full px-4 sm:px-6 lg:px-12">
-              <div className="text-center mb-12 sm:mb-16 lg:mb-20 relative z-10">
+              <motion.div 
+                className="text-center mb-12 sm:mb-16 lg:mb-20 relative z-10"
+                initial={{ opacity: 0 }}
+                whileInView={{ opacity: 1 }}
+                transition={{ duration: 0.8, ease: "easeOut" }}
+                viewport={{ once: true }}
+              >
                 <MobileOptimizedText
                   variant="section-title"
                   as="h2"
@@ -143,7 +149,7 @@ function App() {
                 >
                   While your competitors struggle with manual processes, forward-thinking agencies are closing more deals, reducing costs, and scaling faster than ever before
                 </MobileOptimizedText>
-              </div>
+              </motion.div>
 
               <div className="grid grid-cols-1 lg:grid-cols-2 gap-6 sm:gap-8 max-w-none relative z-10">
                 {[
@@ -172,7 +178,18 @@ function App() {
                     description: "See exactly how much money our AI makes you. Real-time dashboards track revenue increases, cost savings, and efficiency gains down to the penny. Prove ROI to stakeholders with concrete numbers."
                   }
                 ].map((solution, index) => (
-                  <div key={index} className="solution-card group flex flex-col sm:flex-row gap-4 sm:gap-6 lg:gap-8 p-4 sm:p-6 lg:p-8 bg-white/3 sm:bg-black/40 backdrop-blur-sm border border-white/8 sm:border-white/10 rounded-xl sm:rounded-2xl hover:bg-white/5 sm:hover:bg-black/60 hover:scale-[1.02] transition-all duration-300 ease-in-out touch-target">
+                  <motion.div 
+                    key={index} 
+                    className="solution-card group flex flex-col sm:flex-row gap-4 sm:gap-6 lg:gap-8 p-4 sm:p-6 lg:p-8 bg-white/3 sm:bg-black/40 backdrop-blur-sm border border-white/8 sm:border-white/10 rounded-xl sm:rounded-2xl hover:bg-white/5 sm:hover:bg-black/60 hover:scale-[1.02] transition-all duration-300 ease-in-out touch-target"
+                    initial={{ opacity: 0 }}
+                    whileInView={{ opacity: 1 }}
+                    transition={{ 
+                      duration: 0.8, 
+                      delay: index * 0.1,
+                      ease: "easeOut"
+                    }}
+                    viewport={{ once: true }}
+                  >
                     <div className="flex-shrink-0">
                                               <div className="text-2xl sm:text-3xl lg:text-4xl font-heading font-black text-gray-600 group-hover:text-gray-400 transition-colors duration-200 ease-out">
                         {solution.number}
@@ -189,7 +206,7 @@ function App() {
                         {solution.description}
                       </p>
                     </div>
-                  </div>
+                  </motion.div>
                 ))}
               </div>
             </div>
@@ -205,17 +222,29 @@ function App() {
             <div className="w-full px-4 sm:px-6 lg:px-12">
               <div className="max-w-6xl mx-auto relative z-10">
                 {/* Header */}
-                <div className="text-center mb-12 sm:mb-16">
+                <motion.div 
+                  className="text-center mb-12 sm:mb-16"
+                  initial={{ opacity: 0 }}
+                  whileInView={{ opacity: 1 }}
+                  transition={{ duration: 0.8, ease: "easeOut" }}
+                  viewport={{ once: true }}
+                >
                   <h2 className="text-2xl sm:text-4xl md:text-5xl font-heading font-bold text-white mb-4 sm:mb-6">
                     Simple Works. So Does She.
                   </h2>
                   <p className="text-base sm:text-lg lg:text-xl font-body text-gray-400 max-w-3xl mx-auto leading-relaxed">
                     What happens when you give an insurance agency a secret weapon.
                   </p>
-                </div>
+                </motion.div>
 
                 {/* Testimonial Card */}
-                <div className="bg-black/50 backdrop-blur-sm border border-white/10 rounded-2xl sm:rounded-3xl p-8 sm:p-12 lg:p-16">
+                <motion.div 
+                  className="bg-black/50 backdrop-blur-sm border border-white/10 rounded-2xl sm:rounded-3xl p-8 sm:p-12 lg:p-16"
+                  initial={{ opacity: 0 }}
+                  whileInView={{ opacity: 1 }}
+                  transition={{ duration: 0.8, delay: 0.2, ease: "easeOut" }}
+                  viewport={{ once: true }}
+                >
                   {/* Quote */}
                   <div className="mb-8 sm:mb-12">
                     <div className="text-4xl sm:text-6xl font-heading text-white/20 mb-4">"</div>
@@ -250,7 +279,7 @@ function App() {
                       </div>
                     </div>
                   </div>
-                </div>
+                </motion.div>
               </div>
             </div>
           </section>
@@ -261,7 +290,12 @@ function App() {
             <div className="absolute inset-0 bg-black/70 backdrop-blur-sm"></div>
             <div className="w-full px-4 sm:px-6 lg:px-12">
               <div className="grid grid-cols-1 lg:grid-cols-2 gap-8 sm:gap-12 lg:gap-16 items-center relative z-10">
-                <div>
+                <motion.div
+                  initial={{ opacity: 0 }}
+                  whileInView={{ opacity: 1 }}
+                  transition={{ duration: 0.8, ease: "easeOut" }}
+                  viewport={{ once: true }}
+                >
                   <h2 className="text-xl sm:text-4xl md:text-5xl lg:text-6xl font-heading font-bold text-white mb-6 sm:mb-8 leading-tight">
                     Your Competitors Are Already Using AI
                     <span className="font-heading text-gray-300 block">Don't Get Left Behind</span>
@@ -291,16 +325,22 @@ function App() {
                       <div className="stat-label font-body text-xs sm:text-sm lg:text-base text-gray-400 font-semibold">AI Support</div>
                     </div>
                   </div>
-                </div>
+                </motion.div>
                 
-                <div className="bg-black/50 backdrop-blur-sm border border-white/10 rounded-2xl sm:rounded-3xl p-6 sm:p-8 lg:p-10">
+                <motion.div 
+                  className="bg-black/50 backdrop-blur-sm border border-white/10 rounded-2xl sm:rounded-3xl p-6 sm:p-8 lg:p-10"
+                  initial={{ opacity: 0 }}
+                  whileInView={{ opacity: 1 }}
+                  transition={{ duration: 0.8, delay: 0.2, ease: "easeOut" }}
+                  viewport={{ once: true }}
+                >
                   {/* Calendly inline widget */}
                   <div 
                     className="calendly-inline-widget" 
                     data-url="https://calendly.com/kavindul755/lead-gen-system-break-down" 
                     style={{ minWidth: '320px', height: '700px' }}
                   ></div>
-                </div>
+                </motion.div>
               </div>
             </div>
           </section>

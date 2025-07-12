@@ -155,8 +155,9 @@ const Contact: React.FC = () => {
             <motion.div 
               className="text-center mb-12"
               initial={{ opacity: 0 }}
-              animate={{ opacity: 1 }}
-              transition={{ duration: 0.6, delay: 0.6, ease: "easeOut" }}
+              whileInView={{ opacity: 1 }}
+              transition={{ duration: 0.8, ease: "easeOut" }}
+              viewport={{ once: true }}
             >
               <MobileOptimizedText
                 variant="section-title"
@@ -189,8 +190,13 @@ const Contact: React.FC = () => {
                   key={index}
                   className="bg-black/40 backdrop-blur-sm border border-white/10 rounded-2xl p-8"
                   initial={{ opacity: 0 }}
-                  animate={{ opacity: 1 }}
-                  transition={{ duration: 0.5, delay: 0.8 + index * 0.1 }}
+                  whileInView={{ opacity: 1 }}
+                  transition={{ 
+                    duration: 0.8, 
+                    delay: index * 0.1,
+                    ease: "easeOut"
+                  }}
+                  viewport={{ once: true }}
                 >
                   <div className="text-3xl font-heading font-bold text-gray-600 mb-4">{item.step}</div>
                   <MobileOptimizedText

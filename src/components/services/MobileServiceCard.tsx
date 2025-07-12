@@ -29,17 +29,13 @@ const MobileServiceCard: React.FC<MobileServiceCardProps> = ({
   // Animation variants
   const cardVariants = {
     hidden: { 
-      opacity: 0, 
-      y: hasReducedMotion ? 0 : 50,
-      scale: hasReducedMotion ? 1 : 0.95
+      opacity: 0
     },
     visible: { 
-      opacity: 1, 
-      y: 0,
-      scale: 1,
+      opacity: 1,
       transition: {
-        duration: hasReducedMotion ? 0.1 : 0.5, // Reduced duration
-        delay: hasReducedMotion ? 0 : index * 0.08, // Reduced delay
+        duration: hasReducedMotion ? 0.1 : 0.8,
+        delay: hasReducedMotion ? 0 : index * 0.1,
         ease: "easeOut"
       }
     }
@@ -71,11 +67,12 @@ const MobileServiceCard: React.FC<MobileServiceCardProps> = ({
         transition-all duration-300 ease-in-out
         group
       `}
-      variants={cardVariants}
       initial="hidden"
-      animate={isVisible ? "visible" : "hidden"}
+      whileInView="visible"
+      viewport={{ once: true }}
       whileHover={hasReducedMotion ? {} : { scale: 1.02 }}
       whileTap={hasReducedMotion ? {} : { scale: 0.98 }}
+      variants={cardVariants}
     >
       {/* Gradient Background Effect */}
       <div 

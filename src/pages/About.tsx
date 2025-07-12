@@ -64,7 +64,7 @@ const About: React.FC = () => {
                 className="bg-black/40 backdrop-blur-sm border border-white/10 rounded-2xl p-8"
                 initial={{ opacity: 0 }}
                 whileInView={{ opacity: 1 }}
-                transition={{ duration: 0.5, delay: 0.1 }}
+                transition={{ duration: 0.8, delay: 0.1, ease: "easeOut" }}
                 viewport={{ once: true }}
               >
                 <div className="w-16 h-16 bg-white/10 rounded-xl flex items-center justify-center mb-6">
@@ -91,7 +91,7 @@ const About: React.FC = () => {
                 className="bg-black/40 backdrop-blur-sm border border-white/10 rounded-2xl p-8"
                 initial={{ opacity: 0 }}
                 whileInView={{ opacity: 1 }}
-                transition={{ duration: 0.5, delay: 0.2 }}
+                transition={{ duration: 0.8, delay: 0.2, ease: "easeOut" }}
                 viewport={{ once: true }}
               >
                 <div className="w-16 h-16 bg-white/10 rounded-xl flex items-center justify-center mb-6">
@@ -118,7 +118,7 @@ const About: React.FC = () => {
                 className="bg-black/40 backdrop-blur-sm border border-white/10 rounded-2xl p-8"
                 initial={{ opacity: 0 }}
                 whileInView={{ opacity: 1 }}
-                transition={{ duration: 0.5, delay: 0.3 }}
+                transition={{ duration: 0.8, delay: 0.3, ease: "easeOut" }}
                 viewport={{ once: true }}
               >
                 <div className="w-16 h-16 bg-white/10 rounded-xl flex items-center justify-center mb-6">
@@ -150,7 +150,7 @@ const About: React.FC = () => {
               className="text-center mb-16"
               initial={{ opacity: 0 }}
               whileInView={{ opacity: 1 }}
-              transition={{ duration: 0.5 }}
+              transition={{ duration: 0.8, ease: "easeOut" }}
               viewport={{ once: true }}
             >
               <MobileOptimizedText
@@ -168,7 +168,7 @@ const About: React.FC = () => {
                 className="bg-black/40 backdrop-blur-sm border border-white/10 rounded-2xl p-8 text-center lg:text-left"
                 initial={{ opacity: 0 }}
                 whileInView={{ opacity: 1 }}
-                transition={{ duration: 0.5, delay: 0.1 }}
+                transition={{ duration: 0.8, delay: 0.1, ease: "easeOut" }}
                 viewport={{ once: true }}
               >
                 <div className="flex flex-col lg:flex-row items-center lg:items-start gap-6">
