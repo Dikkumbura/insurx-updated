@@ -252,7 +252,7 @@
   
   /* Mobile performance optimizations */
   .threejs-background {
-    opacity: 0.3 !important;
+    opacity: 1 !important;
   }
   
   /* Ensure content is readable on mobile */

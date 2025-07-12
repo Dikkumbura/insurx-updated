@@ -56,14 +56,15 @@ function App() {
           <MobileOptimizedBackground>
             <div className="min-h-screen text-white relative">
           <MobileOptimizedNavigation />
+          <div className="main-content transition-all duration-300 ease-in-out">
 
           {/* Hero Section */}
-<section id="home" className="min-h-[80vh] sm:min-h-screen flex items-center justify-center relative z-10 px-4 sm:px-6">
+<section id="home" className="min-h-[60vh] sm:min-h-screen flex items-center justify-center relative z-10 px-4 sm:px-6">
             {/* Content Overlay */}
                           <div className="w-full flex flex-col items-center justify-center text-center relative z-20 px-4 sm:px-6 lg:px-8">
               {/* Hero Text */}
               <div className="text-center">
-                <div className="mb-6 sm:mb-8">
+                <div className="mb-4 sm:mb-8">
                   <motion.div
                     initial={{ opacity: 0 }}
                     animate={{ opacity: 1 }}
@@ -92,7 +93,7 @@ function App() {
                   </motion.div>
                 </div>
                 
-                <div className="flex flex-col sm:flex-row gap-4 sm:gap-6 justify-center items-center w-full px-4">
+                <div className="flex flex-col sm:flex-row gap-3 sm:gap-6 justify-center items-center w-full px-4">
                   <motion.button 
                     className="mobile-btn border-2 border-white/60 px-8 sm:px-10 py-3 sm:py-4 rounded-2xl font-body font-semibold text-base sm:text-lg hover:bg-white/20 hover:border-white transition-all duration-300 transform hover:scale-105 touch-target w-full sm:w-auto max-w-xs" 
                     style={{
@@ -171,7 +172,7 @@ function App() {
                     description: "See exactly how much money our AI makes you. Real-time dashboards track revenue increases, cost savings, and efficiency gains down to the penny. Prove ROI to stakeholders with concrete numbers."
                   }
                 ].map((solution, index) => (
-                  <div key={index} className="solution-card group flex flex-col sm:flex-row gap-4 sm:gap-6 lg:gap-8 p-4 sm:p-6 lg:p-8 bg-black/40 backdrop-blur-sm border border-white/10 rounded-xl sm:rounded-2xl hover:bg-black/60 hover:scale-[1.02] transition-all duration-300 ease-in-out touch-target">
+                  <div key={index} className="solution-card group flex flex-col sm:flex-row gap-4 sm:gap-6 lg:gap-8 p-4 sm:p-6 lg:p-8 bg-white/3 sm:bg-black/40 backdrop-blur-sm border border-white/8 sm:border-white/10 rounded-xl sm:rounded-2xl hover:bg-white/5 sm:hover:bg-black/60 hover:scale-[1.02] transition-all duration-300 ease-in-out touch-target">
                     <div className="flex-shrink-0">
                                               <div className="text-2xl sm:text-3xl lg:text-4xl font-heading font-black text-gray-600 group-hover:text-gray-400 transition-colors duration-200 ease-out">
                         {solution.number}
@@ -349,6 +350,7 @@ function App() {
           
           {/* Extra padding to ensure no gap at bottom */}
           <div className="h-2 sm:h-4 lg:h-6 bg-black/80 relative z-10"></div>
+          </div>
         </div>
         </MobileOptimizedBackground>
       </ServicesProvider>

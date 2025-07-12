@@ -3,7 +3,8 @@ import { motion } from 'framer-motion';
 import { ArrowRight, Target, Eye, Heart, Users } from 'lucide-react';
 import { useNavigate } from 'react-router-dom';
 import { ThreeJSHero } from '../components/ui/ThreeJSHero';
-import Navigation from '../components/navigation/Navigation';
+import MobileOptimizedNavigation from '../components/navigation/MobileOptimizedNavigation';
+import MobileOptimizedText from '../components/ui/MobileOptimizedText';
 
 const About: React.FC = () => {
   const navigate = useNavigate();
@@ -19,28 +20,38 @@ const About: React.FC = () => {
       {/* Full page blurred overlay */}
       <div className="fixed inset-0 bg-black/40 backdrop-blur-sm z-[-10]"></div>
       
-      <Navigation />
+      <MobileOptimizedNavigation />
       
-      <div className="relative z-10">
+      <div className="main-content transition-all duration-300 ease-in-out relative z-10">
         {/* Hero Section */}
         <section className="pt-32 pb-20 px-4 sm:px-6 lg:px-12">
           <div className="max-w-7xl mx-auto text-center">
-            <motion.h1 
-              className="text-4xl sm:text-6xl lg:text-7xl font-heading font-bold mb-6 text-white"
-              initial={{ opacity: 0, y: 30 }}
-              animate={{ opacity: 1, y: 0 }}
-              transition={{ duration: 1, ease: "easeOut" }}
+            <motion.div
+              initial={{ opacity: 0 }}
+              animate={{ opacity: 1 }}
+              transition={{ duration: 0.6, ease: "easeOut" }}
             >
-              The Insurance AI Revolution Starts Here
-            </motion.h1>
-            <motion.p 
-              className="text-lg sm:text-xl lg:text-2xl font-body text-gray-300 max-w-4xl mx-auto leading-relaxed"
-              initial={{ opacity: 0, y: 30 }}
-              animate={{ opacity: 1, y: 0 }}
-              transition={{ duration: 1, delay: 0.3, ease: "easeOut" }}
+              <MobileOptimizedText
+                variant="hero-title"
+                as="h1"
+                className="mb-6 font-heading font-bold"
+              >
+                The Insurance AI Revolution Starts Here
+              </MobileOptimizedText>
+            </motion.div>
+            <motion.div
+              initial={{ opacity: 0 }}
+              animate={{ opacity: 1 }}
+              transition={{ duration: 0.6, delay: 0.2, ease: "easeOut" }}
             >
-              We're not just another tech company. We're insurance professionals who got tired of watching great agencies struggle with outdated systems. So we built the AI platform that's helping agencies across the country dominate their markets.
-            </motion.p>
+              <MobileOptimizedText
+                variant="hero-subtitle"
+                as="p"
+                className="max-w-4xl mx-auto leading-relaxed"
+              >
+                We're not just another tech company. We're insurance professionals who got tired of watching great agencies struggle with outdated systems. So we built the AI platform that's helping agencies across the country dominate their markets.
+              </MobileOptimizedText>
+            </motion.div>
           </div>
         </section>
 
@@ -51,52 +62,82 @@ const About: React.FC = () => {
               {/* Mission */}
               <motion.div 
                 className="bg-black/40 backdrop-blur-sm border border-white/10 rounded-2xl p-8"
-                initial={{ opacity: 0, y: 50 }}
-                whileInView={{ opacity: 1, y: 0 }}
-                transition={{ duration: 0.8, delay: 0.1 }}
+                initial={{ opacity: 0 }}
+                whileInView={{ opacity: 1 }}
+                transition={{ duration: 0.5, delay: 0.1 }}
                 viewport={{ once: true }}
               >
                 <div className="w-16 h-16 bg-white/10 rounded-xl flex items-center justify-center mb-6">
                   <Target className="w-8 h-8 text-white" />
                 </div>
-                <h3 className="text-2xl font-heading font-bold text-white mb-4">Our Mission</h3>
-                <p className="text-gray-300 font-body leading-relaxed">
+                <MobileOptimizedText
+                  variant="card-title"
+                  as="h3"
+                  className="mb-4 font-heading font-bold"
+                >
+                  Our Mission
+                </MobileOptimizedText>
+                <MobileOptimizedText
+                  variant="card-body"
+                  as="p"
+                  className="leading-relaxed"
+                >
                   To eliminate the technology gap that's holding insurance agencies back. We empower agents with enterprise-level AI tools that were previously only available to billion-dollar corporations, leveling the playing field for agencies of all sizes.
-                </p>
+                </MobileOptimizedText>
               </motion.div>
 
               {/* Vision */}
               <motion.div 
                 className="bg-black/40 backdrop-blur-sm border border-white/10 rounded-2xl p-8"
-                initial={{ opacity: 0, y: 50 }}
-                whileInView={{ opacity: 1, y: 0 }}
-                transition={{ duration: 0.8, delay: 0.2 }}
+                initial={{ opacity: 0 }}
+                whileInView={{ opacity: 1 }}
+                transition={{ duration: 0.5, delay: 0.2 }}
                 viewport={{ once: true }}
               >
                 <div className="w-16 h-16 bg-white/10 rounded-xl flex items-center justify-center mb-6">
                   <Eye className="w-8 h-8 text-white" />
                 </div>
-                <h3 className="text-2xl font-heading font-bold text-white mb-4">Vision</h3>
-                <p className="text-gray-300 font-body leading-relaxed">
+                <MobileOptimizedText
+                  variant="card-title"
+                  as="h3"
+                  className="mb-4 font-heading font-bold"
+                >
+                  Vision
+                </MobileOptimizedText>
+                <MobileOptimizedText
+                  variant="card-body"
+                  as="p"
+                  className="leading-relaxed"
+                >
                   A future where every insurance agency - from solo agents to large brokerages - can compete with the biggest players in the industry through intelligent automation that amplifies human expertise rather than replacing it.
-                </p>
+                </MobileOptimizedText>
               </motion.div>
 
               {/* Values */}
               <motion.div 
                 className="bg-black/40 backdrop-blur-sm border border-white/10 rounded-2xl p-8"
-                initial={{ opacity: 0, y: 50 }}
-                whileInView={{ opacity: 1, y: 0 }}
-                transition={{ duration: 0.8, delay: 0.3 }}
+                initial={{ opacity: 0 }}
+                whileInView={{ opacity: 1 }}
+                transition={{ duration: 0.5, delay: 0.3 }}
                 viewport={{ once: true }}
               >
                 <div className="w-16 h-16 bg-white/10 rounded-xl flex items-center justify-center mb-6">
                   <Heart className="w-8 h-8 text-white" />
                 </div>
-                <h3 className="text-2xl font-heading font-bold text-white mb-4">Values</h3>
-                <p className="text-gray-300 font-body leading-relaxed">
+                <MobileOptimizedText
+                  variant="card-title"
+                  as="h3"
+                  className="mb-4 font-heading font-bold"
+                >
+                  Values
+                </MobileOptimizedText>
+                <MobileOptimizedText
+                  variant="card-body"
+                  as="p"
+                  className="leading-relaxed"
+                >
                   Results over promises. We measure success by our clients' growth, not our technology's complexity. Every feature we build must directly increase revenue, reduce costs, or improve customer satisfaction.
-                </p>
+                </MobileOptimizedText>
               </motion.div>
             </div>
           </div>
@@ -107,23 +148,27 @@ const About: React.FC = () => {
           <div className="max-w-7xl mx-auto">
             <motion.div 
               className="text-center mb-16"
-              initial={{ opacity: 0, y: 30 }}
-              whileInView={{ opacity: 1, y: 0 }}
-              transition={{ duration: 0.8 }}
+              initial={{ opacity: 0 }}
+              whileInView={{ opacity: 1 }}
+              transition={{ duration: 0.5 }}
               viewport={{ once: true }}
             >
-              <h2 className="text-3xl sm:text-5xl font-heading font-bold text-white mb-6">
+              <MobileOptimizedText
+                variant="section-title"
+                as="h2"
+                className="mb-6 font-heading font-bold"
+              >
                 Leadership Team
-              </h2>
+              </MobileOptimizedText>
             </motion.div>
 
             <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 lg:gap-16">
               {/* Stephanie Belote */}
               <motion.div 
                 className="bg-black/40 backdrop-blur-sm border border-white/10 rounded-2xl p-8 text-center lg:text-left"
-                initial={{ opacity: 0, x: -50 }}
-                whileInView={{ opacity: 1, x: 0 }}
-                transition={{ duration: 0.8, delay: 0.1 }}
+                initial={{ opacity: 0 }}
+                whileInView={{ opacity: 1 }}
+                transition={{ duration: 0.5, delay: 0.1 }}
                 viewport={{ once: true }}
               >
                 <div className="flex flex-col lg:flex-row items-center lg:items-start gap-6">
@@ -135,11 +180,27 @@ const About: React.FC = () => {
                     />
                   </div>
                   <div className="flex-1">
-                    <h3 className="text-2xl font-heading font-bold text-white mb-2">Stephanie Belote</h3>
-                    <p className="text-lg font-body text-gray-400 mb-4">Co-Founder & Chief Visionary Officer</p>
-                    <p className="text-gray-300 font-body leading-relaxed">
+                    <MobileOptimizedText
+                      variant="card-title"
+                      as="h3"
+                      className="mb-2 font-heading font-bold"
+                    >
+                      Stephanie Belote
+                    </MobileOptimizedText>
+                    <MobileOptimizedText
+                      variant="card-body"
+                      as="p"
+                      className="mb-4 text-gray-400"
+                    >
+                      Co-Founder & Chief Visionary Officer
+                    </MobileOptimizedText>
+                    <MobileOptimizedText
+                      variant="card-body"
+                      as="p"
+                      className="leading-relaxed"
+                    >
                       A forward-thinking entrepreneur and AI automation strategist, Stephanie brings a fusion of insurance industry expertise and cutting-edge technology to InsurX. She envisioned an AI-powered solution that revolutionizes risk placement, underwriting, and claims processing.
-                    </p>
+                    </MobileOptimizedText>
                   </div>
                 </div>
               </motion.div>
@@ -161,11 +222,27 @@ const About: React.FC = () => {
                     />
                   </div>
                   <div className="flex-1">
-                    <h3 className="text-2xl font-heading font-bold text-white mb-2">Kavindu Lakshan</h3>
-                    <p className="text-lg font-body text-gray-400 mb-4">Co-Founder & Chief Technology Officer</p>
-                    <p className="text-gray-300 font-body leading-relaxed">
+                    <MobileOptimizedText
+                      variant="card-title"
+                      as="h3"
+                      className="mb-2 font-heading font-bold"
+                    >
+                      Kavindu Lakshan
+                    </MobileOptimizedText>
+                    <MobileOptimizedText
+                      variant="card-body"
+                      as="p"
+                      className="mb-4 text-gray-400"
+                    >
+                      Co-Founder & Chief Technology Officer
+                    </MobileOptimizedText>
+                    <MobileOptimizedText
+                      variant="card-body"
+                      as="p"
+                      className="leading-relaxed"
+                    >
                       As an AI specialist and technology strategist, Kavindu is the architect behind InsurX's intelligent automation platform. His expertise lies in designing and deploying scalable AI systems for underwriting, claims processing, and policy management.
-                    </p>
+                    </MobileOptimizedText>
                   </div>
                 </div>
               </motion.div>
@@ -183,12 +260,20 @@ const About: React.FC = () => {
               transition={{ duration: 0.8 }}
               viewport={{ once: true }}
             >
-              <h2 className="text-3xl sm:text-4xl font-heading font-bold text-white mb-6">
+              <MobileOptimizedText
+                variant="section-title"
+                as="h2"
+                className="mb-6 font-heading font-bold"
+              >
                 Innovation Meets Experience
-              </h2>
-              <p className="text-lg sm:text-xl font-body text-gray-300 max-w-4xl mx-auto leading-relaxed">
+              </MobileOptimizedText>
+              <MobileOptimizedText
+                variant="section-subtitle"
+                as="p"
+                className="max-w-4xl mx-auto leading-relaxed"
+              >
                 Built by insurance professionals and powered by next-gen AI, we're not just keeping up with industry changes—we're driving them. InsurX combines deep industry knowledge with cutting-edge technology to deliver solutions that transform how insurance agencies operate.
-              </p>
+              </MobileOptimizedText>
             </motion.div>
           </div>
         </section>
@@ -204,17 +289,31 @@ const About: React.FC = () => {
               viewport={{ once: true }}
             >
               <div className="text-center mb-12">
-                <h2 className="text-3xl sm:text-4xl lg:text-5xl font-heading font-bold text-white mb-6">
+                <MobileOptimizedText
+                  variant="section-title"
+                  as="h2"
+                  className="mb-6 font-heading font-bold"
+                >
                   See Exactly How AI Will Transform Your Agency
-                </h2>
-                <p className="text-lg sm:text-xl font-body text-gray-300 max-w-4xl mx-auto leading-relaxed">
+                </MobileOptimizedText>
+                <MobileOptimizedText
+                  variant="section-subtitle"
+                  as="p"
+                  className="max-w-4xl mx-auto leading-relaxed"
+                >
                   Don't take our word for it. Get a personalized ROI analysis showing exactly how much revenue our AI will generate for your specific agency. Most clients see their investment back in 90 days.
-                </p>
+                </MobileOptimizedText>
               </div>
 
               <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
                 <div>
-                  <h3 className="text-2xl font-heading font-bold text-white mb-6">Your 30-minute call includes:</h3>
+                  <MobileOptimizedText
+                    variant="card-title"
+                    as="h3"
+                    className="mb-6 font-heading font-bold"
+                  >
+                    Your 30-minute call includes:
+                  </MobileOptimizedText>
                   <div className="space-y-6">
                     {[
                       "Custom ROI projection based on your current metrics",
@@ -232,7 +331,13 @@ const About: React.FC = () => {
                         <div className="w-8 h-8 bg-white rounded-full flex items-center justify-center flex-shrink-0 mt-1">
                           <span className="text-black font-bold font-body text-sm">{index + 1}</span>
                         </div>
-                        <p className="text-gray-300 font-body text-lg leading-relaxed">{item}</p>
+                        <MobileOptimizedText
+                          variant="card-body"
+                          as="p"
+                          className="leading-relaxed"
+                        >
+                          {item}
+                        </MobileOptimizedText>
                       </motion.div>
                     ))}
                   </div>

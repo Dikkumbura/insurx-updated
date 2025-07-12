@@ -12,19 +12,18 @@ const useMobileOptimization = () => {
       const mobile = window.innerWidth < 768;
       setIsMobile(mobile);
       
-      // Reduce performance load on mobile with enhanced optimizations
-      if (mobile) {
-        // More aggressive mobile performance optimization
-        setShouldRender(window.devicePixelRatio <= 2 && !window.matchMedia('(prefers-reduced-motion: reduce)').matches);
-      }
+      // Always render animation on all devices
+      // Only pause for users with reduced motion preferences
+      const hasReducedMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+      setShouldRender(!hasReducedMotion);
     };
 
     checkMobile();
     window.addEventListener('resize', checkMobile);
     
-    // Pause animation when page is not visible (mobile battery optimization)
+    // Pause animation when page is not visible (battery optimization)
     const handleVisibilityChange = () => {
-      setShouldRender(!document.hidden);
+      setShouldRender(!document.hidden && !window.matchMedia('(prefers-reduced-motion: reduce)').matches);
     };
     
     document.addEventListener('visibilitychange', handleVisibilityChange);
@@ -47,20 +46,21 @@ interface BoxProps {
 const Box: React.FC<BoxProps> = ({ position, rotation, isMobile }) => {
   const shape = new Shape();
   const angleStep = Math.PI * 0.5;
-  const radius = 1;
+  const radius = isMobile ? 0.3 : 0.6; // Even smaller on mobile
 
-  shape.absarc(2, 2, radius, angleStep * 0, angleStep * 1);
-  shape.absarc(-2, 2, radius, angleStep * 1, angleStep * 2);
-  shape.absarc(-2, -2, radius, angleStep * 2, angleStep * 3);
-  shape.absarc(2, -2, radius, angleStep * 3, angleStep * 4);
+  const shapeSize = isMobile ? 0.6 : 1.2; // Smaller shape on mobile
+  shape.absarc(shapeSize, shapeSize, radius, angleStep * 0, angleStep * 1);
+  shape.absarc(-shapeSize, shapeSize, radius, angleStep * 1, angleStep * 2);
+  shape.absarc(-shapeSize, -shapeSize, radius, angleStep * 2, angleStep * 3);
+  shape.absarc(shapeSize, -shapeSize, radius, angleStep * 3, angleStep * 4);
 
   const extrudeSettings = {
-    depth: isMobile ? 0.2 : 0.3,
+    depth: isMobile ? 0.1 : 0.2, // Even thinner on mobile
     bevelEnabled: true,
-    bevelThickness: isMobile ? 0.03 : 0.05,
-    bevelSize: isMobile ? 0.03 : 0.05,
-    bevelSegments: isMobile ? 10 : 20,
-    curveSegments: isMobile ? 10 : 20
+    bevelThickness: isMobile ? 0.015 : 0.03, // Smaller bevels on mobile
+    bevelSize: isMobile ? 0.015 : 0.03,
+    bevelSegments: isMobile ? 8 : 20, // Fewer segments for performance
+    curveSegments: isMobile ? 8 : 20
   };
 
   const geometry = new ExtrudeGeometry(shape, extrudeSettings);
@@ -115,13 +115,13 @@ const AnimatedBoxes: React.FC = () => {
   });
 
   // Reduce number of boxes on mobile for better performance
-  const boxCount = isMobile ? 15 : 50; // Further reduced for better mobile performance
-  const spacing = isMobile ? 1.2 : 0.75; // Increased spacing for mobile
+  const boxCount = isMobile ? 12 : 50; // Even fewer boxes on mobile
+  const spacing = isMobile ? 0.5 : 0.6; // Tighter spacing on mobile
   
   const boxes = Array.from({ length: boxCount }, (_, index) => ({
-    position: [(index - boxCount/2) * spacing, 0, 0] as [number, number, number],
+    position: [(index - boxCount/2) * spacing, isMobile ? 2 : 0, 0] as [number, number, number], // Higher on mobile
     rotation: [
-      (index - 10) * 0.1,
+      (index - boxCount/2) * 0.1, // Center the rotation around the middle
       Math.PI / 2,
       0
     ] as [number, number, number],
@@ -147,13 +147,8 @@ const AnimatedBoxes: React.FC = () => {
 export const ThreeJSHero: React.FC = () => {
   const { isMobile } = useMobileOptimization();
   
-  // Don't render Three.js on mobile for better performance
-  if (isMobile) {
-    return null;
-  }
-  
   // Adjust camera position and lighting for mobile
-  const cameraPosition: [number, number, number] = isMobile ? [3, 3, 15] : [5, 5, 20];
+  const cameraPosition: [number, number, number] = isMobile ? [3, 0, 15] : [4, 4, 16]; // Centered camera for mobile
   const ambientIntensity = isMobile ? 8 : 12;
   const directionalIntensity1 = isMobile ? 10 : 15;
   const directionalIntensity2 = isMobile ? 5 : 8;

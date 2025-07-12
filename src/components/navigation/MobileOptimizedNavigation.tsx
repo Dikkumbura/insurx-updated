@@ -25,6 +25,32 @@ const MobileOptimizedNavigation: React.FC = () => {
     setIsMobileMenuOpen(!isMobileMenuOpen);
   };
 
+  // Add blur effect to main content when menu is open
+  React.useEffect(() => {
+    if (isMobileMenuOpen) {
+      document.body.style.overflow = 'hidden';
+      const mainContent = document.querySelector('.main-content');
+      if (mainContent) {
+        mainContent.classList.add('blur-sm');
+      }
+    } else {
+      document.body.style.overflow = 'unset';
+      const mainContent = document.querySelector('.main-content');
+      if (mainContent) {
+        mainContent.classList.remove('blur-sm');
+      }
+    }
+
+    // Cleanup function
+    return () => {
+      document.body.style.overflow = 'unset';
+      const mainContent = document.querySelector('.main-content');
+      if (mainContent) {
+        mainContent.classList.remove('blur-sm');
+      }
+    };
+  }, [isMobileMenuOpen]);
+
   const handleNavClick = (href: string) => {
     setIsMobileMenuOpen(false);
     
@@ -135,21 +161,19 @@ const MobileOptimizedNavigation: React.FC = () => {
             onClick={handleMobileMenuToggle}
             className="
               md:hidden flex items-center justify-center
-              px-3 py-2 rounded-lg
-              bg-white/10 hover:bg-white/20 active:bg-white/30
-              border border-white/30 hover:border-white/50
+              p-2
               transition-all duration-200
               focus:outline-none
               touch-manipulation
             "
             aria-expanded={isMobileMenuOpen}
             aria-label="Toggle mobile menu"
-            style={{ minHeight: '40px', minWidth: '60px' }}
+            style={{ minHeight: '36px', minWidth: '36px' }}
           >
             {isMobileMenuOpen ? (
-              <span className="text-white font-medium text-sm">CLOSE</span>
+              <X className="w-5 h-5 text-white" />
             ) : (
-              <span className="text-white font-medium text-sm">MENU</span>
+              <Menu className="w-5 h-5 text-white" />
             )}
           </button>
         )}
@@ -192,7 +216,7 @@ const MobileOptimizedNavigation: React.FC = () => {
           <>
             {/* Backdrop */}
             <motion.div
-              className="fixed inset-0 bg-black/50 backdrop-blur-sm z-40"
+              className="fixed inset-0 bg-black/70 backdrop-blur-md z-[60]"
               initial={{ opacity: 0 }}
               animate={{ opacity: 1 }}
               exit={{ opacity: 0 }}
@@ -203,7 +227,7 @@ const MobileOptimizedNavigation: React.FC = () => {
             {/* Menu Panel */}
             <motion.div
               className="
-                fixed top-12 left-4 right-4 z-50
+                fixed top-12 left-4 right-4 z-[70]
                 bg-black border border-white/30 rounded-xl
                 p-6 shadow-2xl
               "
@@ -214,6 +238,7 @@ const MobileOptimizedNavigation: React.FC = () => {
                 duration: hasReducedMotion ? 0.1 : 0.3,
                 ease: "easeOut"
               }}
+              onClick={(e) => e.stopPropagation()}
             >
               <div className="space-y-4">
                 {navigationItems.map((item, index) => (

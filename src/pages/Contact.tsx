@@ -1,7 +1,8 @@
 import React, { useEffect } from 'react';
 import { motion } from 'framer-motion';
 import { ThreeJSHero } from '../components/ui/ThreeJSHero';
-import Navigation from '../components/navigation/Navigation';
+import MobileOptimizedNavigation from '../components/navigation/MobileOptimizedNavigation';
+import MobileOptimizedText from '../components/ui/MobileOptimizedText';
 
 const Contact: React.FC = () => {
   useEffect(() => {
@@ -35,34 +36,44 @@ const Contact: React.FC = () => {
       {/* Global Blurred Overlay */}
       <div className="fixed inset-0 bg-black/60 backdrop-blur-sm z-[-10]"></div>
       
-      <Navigation />
+      <MobileOptimizedNavigation />
       
-      <div className="relative z-10">
+      <div className="main-content transition-all duration-300 ease-in-out relative z-10">
         {/* Hero Section */}
         <section className="pt-32 pb-12 px-4 sm:px-6 lg:px-12">
           <div className="max-w-7xl mx-auto text-center">
-            <motion.h1 
-              className="text-4xl sm:text-6xl lg:text-7xl font-heading font-bold mb-6 text-white"
-              initial={{ opacity: 0, y: 30 }}
-              animate={{ opacity: 1, y: 0 }}
-              transition={{ duration: 1, ease: "easeOut" }}
+            <motion.div
+              initial={{ opacity: 0 }}
+              animate={{ opacity: 1 }}
+              transition={{ duration: 0.6, ease: "easeOut" }}
             >
-              Ready to Transform Your Agency?
-            </motion.h1>
-            <motion.p 
-              className="text-lg sm:text-xl lg:text-2xl font-body text-gray-300 max-w-4xl mx-auto leading-relaxed mb-8"
-              initial={{ opacity: 0, y: 30 }}
-              animate={{ opacity: 1, y: 0 }}
-              transition={{ duration: 1, delay: 0.3, ease: "easeOut" }}
+              <MobileOptimizedText
+                variant="hero-title"
+                as="h1"
+                className="mb-6 font-heading font-bold"
+              >
+                Ready to Transform Your Agency?
+              </MobileOptimizedText>
+            </motion.div>
+            <motion.div
+              initial={{ opacity: 0 }}
+              animate={{ opacity: 1 }}
+              transition={{ duration: 0.6, delay: 0.2, ease: "easeOut" }}
             >
-              Schedule your personalized AI strategy session and discover exactly how our solutions will increase your revenue, reduce costs, and give you the competitive advantage you need.
-            </motion.p>
+              <MobileOptimizedText
+                variant="hero-subtitle"
+                as="p"
+                className="max-w-4xl mx-auto leading-relaxed mb-8"
+              >
+                Schedule your personalized AI strategy session and discover exactly how our solutions will increase your revenue, reduce costs, and give you the competitive advantage you need.
+              </MobileOptimizedText>
+            </motion.div>
 
             <motion.div 
               className="grid grid-cols-1 md:grid-cols-3 gap-6 max-w-4xl mx-auto mb-12"
-              initial={{ opacity: 0, y: 30 }}
-              animate={{ opacity: 1, y: 0 }}
-              transition={{ duration: 1, delay: 0.6, ease: "easeOut" }}
+              initial={{ opacity: 0 }}
+              animate={{ opacity: 1 }}
+              transition={{ duration: 0.6, delay: 0.4, ease: "easeOut" }}
             >
               <div className="bg-black/40 backdrop-blur-sm border border-white/10 rounded-xl p-6 text-center">
                 <div className="text-2xl font-bold text-white mb-2">30 Minutes</div>
@@ -87,14 +98,22 @@ const Contact: React.FC = () => {
           <div className="w-full px-4 sm:px-6 lg:px-12">
             <div className="grid grid-cols-1 lg:grid-cols-2 gap-8 sm:gap-12 lg:gap-16 items-center relative z-10">
               <div>
-                <h2 className="text-xl sm:text-4xl md:text-5xl lg:text-6xl font-heading font-bold text-white mb-6 sm:mb-8 leading-tight">
+                <MobileOptimizedText
+                  variant="section-title"
+                  as="h2"
+                  className="mb-6 sm:mb-8 font-heading font-bold leading-tight"
+                >
                   Your Competitors Are Already Using AI
                   <span className="font-heading text-gray-300 block">Don't Get Left Behind</span>
-                </h2>
+                </MobileOptimizedText>
                 
-                <p className="text-base sm:text-lg lg:text-xl font-body text-gray-400 leading-relaxed mb-8 sm:mb-12 mobile-text-container">
+                <MobileOptimizedText
+                  variant="section-subtitle"
+                  as="p"
+                  className="leading-relaxed mb-8 sm:mb-12"
+                >
                   Every day you wait is revenue lost to agencies already leveraging AI. Schedule your personalized strategy session and discover exactly how our solutions will transform your agency.
-                </p>
+                </MobileOptimizedText>
                 
                 <div className="stats-container grid grid-cols-3 gap-3 sm:gap-6 lg:gap-8">
                   <div className="text-center touch-target">
@@ -135,13 +154,17 @@ const Contact: React.FC = () => {
           <div className="max-w-7xl mx-auto">
             <motion.div 
               className="text-center mb-12"
-              initial={{ opacity: 0, y: 30 }}
-              animate={{ opacity: 1, y: 0 }}
-              transition={{ duration: 1, delay: 1.2, ease: "easeOut" }}
+              initial={{ opacity: 0 }}
+              animate={{ opacity: 1 }}
+              transition={{ duration: 0.6, delay: 0.6, ease: "easeOut" }}
             >
-              <h2 className="text-3xl sm:text-4xl lg:text-5xl font-heading font-bold text-white mb-6">
+              <MobileOptimizedText
+                variant="section-title"
+                as="h2"
+                className="mb-6 font-heading font-bold"
+              >
                 What to Expect in Your Call
-              </h2>
+              </MobileOptimizedText>
             </motion.div>
 
             <div className="grid grid-cols-1 lg:grid-cols-3 gap-8">
@@ -165,13 +188,25 @@ const Contact: React.FC = () => {
                 <motion.div 
                   key={index}
                   className="bg-black/40 backdrop-blur-sm border border-white/10 rounded-2xl p-8"
-                  initial={{ opacity: 0, y: 50 }}
-                  animate={{ opacity: 1, y: 0 }}
-                  transition={{ duration: 0.8, delay: 1.5 + index * 0.2 }}
+                  initial={{ opacity: 0 }}
+                  animate={{ opacity: 1 }}
+                  transition={{ duration: 0.5, delay: 0.8 + index * 0.1 }}
                 >
                   <div className="text-3xl font-heading font-bold text-gray-600 mb-4">{item.step}</div>
-                  <h3 className="text-xl font-heading font-bold text-white mb-4">{item.title}</h3>
-                  <p className="text-gray-300 font-body leading-relaxed">{item.description}</p>
+                  <MobileOptimizedText
+                    variant="card-title"
+                    as="h3"
+                    className="mb-4 font-heading font-bold"
+                  >
+                    {item.title}
+                  </MobileOptimizedText>
+                  <MobileOptimizedText
+                    variant="card-body"
+                    as="p"
+                    className="leading-relaxed"
+                  >
+                    {item.description}
+                  </MobileOptimizedText>
                 </motion.div>
               ))}
             </div>

@@ -68,7 +68,7 @@ const MobileOptimizedServicesSection: React.FC = () => {
       className="py-4 sm:py-8 relative z-10"
     >
       {/* Semi-transparent background for readability */}
-      <div className="absolute inset-0 bg-black/50 backdrop-blur-sm" />
+      <div className="absolute inset-0 bg-white/2 backdrop-blur-sm" />
       
       <div className="relative z-10 px-4 sm:px-6">
         {/* Header */}
@@ -109,7 +109,7 @@ const MobileOptimizedServicesSection: React.FC = () => {
 
         {/* Mobile CTA Section */}
         <div className="mt-12 text-center">
-          <div className="bg-black/60 backdrop-blur-md border border-white/20 rounded-xl p-6">
+          <div className="bg-white/3 backdrop-blur-md border border-white/8 rounded-xl p-6">
             <MobileOptimizedText
               variant="card-title"
               as="h3"

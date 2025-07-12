@@ -63,11 +63,11 @@ const MobileServiceCard: React.FC<MobileServiceCardProps> = ({
       className={`
         relative w-full max-w-lg mx-auto
         ${isMobile 
-          ? 'bg-black/50 backdrop-blur-md border border-white/20 rounded-xl p-6 mb-6' 
+          ? 'bg-white/3 backdrop-blur-md border border-white/8 rounded-xl p-6 mb-6' 
           : 'bg-black/40 backdrop-blur-sm border border-white/10 rounded-2xl p-8 mb-8'
         }
         touch-target cursor-pointer
-        hover:bg-black/60 hover:border-white/30
+        hover:bg-white/5 hover:border-white/15
         transition-all duration-300 ease-in-out
         group
       `}
@@ -91,30 +91,32 @@ const MobileServiceCard: React.FC<MobileServiceCardProps> = ({
       
       {/* Card Content */}
       <div className="relative z-10">
-        {/* Icon Section */}
-        <motion.div
-          className="flex items-center justify-center mb-6"
-          variants={iconVariants}
-          initial="hidden"
-          animate={isVisible ? "visible" : "hidden"}
-        >
-          <div 
-            className={`
-              ${isMobile ? 'w-16 h-16' : 'w-20 h-20'}
-              rounded-full flex items-center justify-center
-              border-2 border-white/20
-              group-hover:border-white/40
-              transition-all duration-300 ease-in-out
-            `}
-            style={{
-              background: `linear-gradient(135deg, ${gradientFrom}30, ${gradientTo}30)`
-            }}
+        {/* Icon Section - Hidden on mobile */}
+        {!isMobile && (
+          <motion.div
+            className="flex items-center justify-center mb-6"
+            variants={iconVariants}
+            initial="hidden"
+            animate={isVisible ? "visible" : "hidden"}
           >
-            <div className={`${isMobile ? 'w-8 h-8' : 'w-10 h-10'} text-white`}>
-              {icon}
+            <div 
+              className={`
+                ${isMobile ? 'w-16 h-16' : 'w-20 h-20'}
+                rounded-full flex items-center justify-center
+                border-2 border-white/20
+                group-hover:border-white/40
+                transition-all duration-300 ease-in-out
+              `}
+              style={{
+                background: `linear-gradient(135deg, ${gradientFrom}30, ${gradientTo}30)`
+              }}
+            >
+              <div className={`${isMobile ? 'w-8 h-8' : 'w-10 h-10'} text-white`}>
+                {icon}
+              </div>
             </div>
-          </div>
-        </motion.div>
+          </motion.div>
+        )}
 
         {/* Title */}
         <MobileOptimizedText
@@ -158,7 +160,7 @@ const MobileServiceCard: React.FC<MobileServiceCardProps> = ({
                   group-hover:scale-110 transition-transform duration-300
                 `}
                 style={{
-                  background: `linear-gradient(135deg, ${gradientFrom}, ${gradientTo})`
+                  background: isMobile ? 'white' : `linear-gradient(135deg, ${gradientFrom}, ${gradientTo})`
                 }}
               />
               <span className={`

@@ -9,8 +9,8 @@ interface MobileOptimizedBackgroundProps {
 const MobileOptimizedBackground: React.FC<MobileOptimizedBackgroundProps> = ({ children }) => {
   const { isMobile, isLowEndDevice, hasReducedMotion } = useMobileDetection();
 
-  // Use static background for mobile, low-end devices, or users who prefer reduced motion
-  const useStaticBackground = isLowEndDevice || hasReducedMotion;
+  // Use static background only for users who prefer reduced motion or extremely low-end devices
+  const useStaticBackground = hasReducedMotion;
 
   return (
     <>
@@ -19,9 +19,9 @@ const MobileOptimizedBackground: React.FC<MobileOptimizedBackgroundProps> = ({ c
       
       {/* Conditional Background Rendering */}
       {useStaticBackground ? (
-        /* Mobile/Low-End Device Background */
+        /* Static Background for users with reduced motion preference */
         <div className="fixed inset-0 w-full h-full z-[-15]">
-          {/* Animated gradient background for mobile */}
+          {/* Static gradient background */}
           <div 
             className="absolute inset-0 w-full h-full opacity-80"
             style={{
@@ -35,8 +35,6 @@ const MobileOptimizedBackground: React.FC<MobileOptimizedBackgroundProps> = ({ c
                   rgba(0, 0, 0, 0.95) 100%
                 )
               `,
-              backgroundSize: '400% 400%',
-              animation: hasReducedMotion ? 'none' : 'mobileGradient 15s ease infinite',
             }}
           />
           
@@ -52,7 +50,6 @@ const MobileOptimizedBackground: React.FC<MobileOptimizedBackgroundProps> = ({ c
               `,
               backgroundSize: '60px 60px, 80px 80px, 100px 100px, 120px 120px',
               backgroundPosition: '0 0, 30px 30px, 60px 60px, 90px 90px',
-              animation: hasReducedMotion ? 'none' : 'mobilePattern 20s linear infinite',
             }}
           />
         </div>
@@ -66,7 +63,7 @@ const MobileOptimizedBackground: React.FC<MobileOptimizedBackgroundProps> = ({ c
         className={`fixed inset-0 z-[-10] ${
           useStaticBackground 
             ? 'bg-black/40 backdrop-blur-sm' 
-            : 'bg-black/60 backdrop-blur-sm'
+            : 'bg-black/30 backdrop-blur-sm'
         }`} 
       />
       

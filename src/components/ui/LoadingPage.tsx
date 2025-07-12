@@ -11,6 +11,16 @@ const LoadingPage: React.FC<LoadingPageProps> = ({
   duration = 3000 
 }) => {
   const [progress, setProgress] = useState(0);
+  
+  // Get responsive logo size
+  const getLogoSize = () => {
+    if (typeof window !== 'undefined') {
+      if (window.innerWidth < 640) return '28px'; // Mobile - a bit bigger
+      if (window.innerWidth < 768) return '30px'; // Small tablet
+      return '32px'; // Desktop
+    }
+    return '28px'; // Default
+  };
 
   useEffect(() => {
     const interval = setInterval(() => {
@@ -21,7 +31,7 @@ const LoadingPage: React.FC<LoadingPageProps> = ({
         if (newProgress >= 100) {
           setTimeout(() => {
             onLoadingComplete?.();
-          }, 200);
+          }, 300);
         }
         
         return newProgress;
@@ -45,7 +55,11 @@ const LoadingPage: React.FC<LoadingPageProps> = ({
           <img 
             src="/logo.png" 
             alt="INSURX" 
-            className="h-8 w-auto object-contain mx-auto"
+            className="loading-logo w-auto object-contain mx-auto"
+            style={{ 
+              height: getLogoSize(),
+              maxHeight: getLogoSize() 
+            }}
           />
         </motion.div>
 

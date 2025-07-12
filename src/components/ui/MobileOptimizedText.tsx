@@ -22,16 +22,15 @@ const MobileOptimizedText: React.FC<MobileOptimizedTextProps> = ({
   // Variant-specific styles with mobile optimizations
   const variantStyles = {
     'hero-title': isMobile 
-      ? `text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-heading font-black text-white leading-tight
+      ? `text-4xl sm:text-5xl md:text-6xl lg:text-7xl font-heading font-black text-white leading-tight
          text-shadow-lg drop-shadow-2xl
          bg-gradient-to-b from-white to-gray-200 bg-clip-text text-transparent
          [text-shadow:_0_2px_8px_rgba(0,0,0,0.9)]`
-      : `text-5xl md:text-6xl lg:text-7xl xl:text-8xl 2xl:text-9xl font-heading font-black text-white leading-none
+      : `text-5xl md:text-6xl lg:text-7xl xl:text-8xl font-heading font-black text-white leading-tight
          [text-shadow:_0_0_20px_rgba(0,0,0,0.8),_0_0_40px_rgba(0,0,0,0.6)]`,
     
     'hero-subtitle': isMobile
       ? `text-lg sm:text-xl md:text-2xl font-heading text-gray-200 font-light italic
-         bg-black/40 backdrop-blur-sm rounded-lg px-3 py-2 inline-block
          [text-shadow:_0_1px_4px_rgba(0,0,0,0.8)]`
       : `text-xl md:text-2xl lg:text-3xl xl:text-4xl font-heading text-gray-200 font-light italic
          [text-shadow:_0_0_15px_rgba(0,0,0,0.8)]`,
@@ -51,7 +50,6 @@ const MobileOptimizedText: React.FC<MobileOptimizedTextProps> = ({
     
     'body': isMobile
       ? `text-sm sm:text-base font-body text-gray-300 leading-relaxed
-         bg-black/20 backdrop-blur-sm rounded px-2 py-1 inline-block
          [text-shadow:_0_1px_2px_rgba(0,0,0,0.7)]`
       : `text-base font-body text-gray-400 leading-relaxed
          [text-shadow:_0_1px_3px_rgba(0,0,0,0.5)]`,
@@ -64,7 +62,6 @@ const MobileOptimizedText: React.FC<MobileOptimizedTextProps> = ({
     
     'card-body': isMobile
       ? `text-sm sm:text-base font-body text-gray-300 leading-relaxed
-         bg-black/20 backdrop-blur-sm rounded px-2 py-1 inline-block
          [text-shadow:_0_1px_2px_rgba(0,0,0,0.7)]`
       : `text-sm sm:text-base font-body text-gray-400 leading-relaxed
          [text-shadow:_0_1px_3px_rgba(0,0,0,0.5)]`,

@@ -2,6 +2,16 @@
 @tailwind components;
 @tailwind utilities;
 
+/* Stable layout foundations */
+html, body {
+  height: 100%;
+  overflow-x: hidden;
+}
+
+#root {
+  min-height: 100vh;
+}
+
 /* Mobile Background Animations */
 @keyframes mobileGradient {
   0% {
@@ -109,6 +119,11 @@
   html {
     scroll-behavior: smooth !important;
     -webkit-overflow-scrolling: touch !important;
+  }
+  
+  /* Prevent layout shift */
+  body {
+    min-height: 100vh !important;
   }
 }
 
