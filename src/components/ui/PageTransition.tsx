@@ -1,6 +1,6 @@
 import React from 'react';
-import { motion, AnimatePresence } from 'framer-motion';
 import { useLocation } from 'react-router-dom';
+import { useMobileDetection } from '../../hooks/useMobileDetection';
 
 interface PageTransitionProps {
   children: React.ReactNode;
@@ -8,23 +8,29 @@ interface PageTransitionProps {
 
 const PageTransition: React.FC<PageTransitionProps> = ({ children }) => {
   const location = useLocation();
+  const { isMobile } = useMobileDetection();
+  const [isVisible, setIsVisible] = React.useState(false);
+
+  React.useEffect(() => {
+    // For mobile, use immediate visibility to prevent flashing
+    if (isMobile) {
+      setIsVisible(true);
+    } else {
+      // For desktop, use a minimal delay for smooth transition
+      const timer = setTimeout(() => setIsVisible(true), 50);
+      return () => clearTimeout(timer);
+    }
+  }, [location.pathname, isMobile]);
 
   return (
-    <AnimatePresence mode="wait">
-      <motion.div
-        key={location.pathname}
-        initial={{ opacity: 0 }}
-        animate={{ opacity: 1 }}
-        exit={{ opacity: 0 }}
-        transition={{
-          duration: 0.3,
-          ease: "easeInOut"
-        }}
-        className="min-h-screen"
-      >
-        {children}
-      </motion.div>
-    </AnimatePresence>
+    <div
+      className={`min-h-screen transition-opacity duration-200 ease-out ${
+        isVisible ? 'opacity-100' : 'opacity-0'
+      }`}
+      style={{ willChange: 'auto' }}
+    >
+      {children}
+    </div>
   );
 };
 

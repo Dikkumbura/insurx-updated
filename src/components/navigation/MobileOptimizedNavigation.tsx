@@ -25,19 +25,24 @@ const MobileOptimizedNavigation: React.FC = () => {
     setIsMobileMenuOpen(!isMobileMenuOpen);
   };
 
-  // Add blur effect to main content when menu is open
+  // Add blur effect to main content when menu is open (mobile optimized)
   React.useEffect(() => {
     if (isMobileMenuOpen) {
       document.body.style.overflow = 'hidden';
+      // Use a more performant blur approach for mobile
       const mainContent = document.querySelector('.main-content');
       if (mainContent) {
-        mainContent.classList.add('blur-sm');
+        (mainContent as HTMLElement).style.filter = 'blur(2px)';
+        (mainContent as HTMLElement).style.transform = 'translateZ(0)'; // Force GPU acceleration
+        (mainContent as HTMLElement).style.willChange = 'filter';
       }
     } else {
       document.body.style.overflow = 'unset';
       const mainContent = document.querySelector('.main-content');
       if (mainContent) {
-        mainContent.classList.remove('blur-sm');
+        (mainContent as HTMLElement).style.filter = 'none';
+        (mainContent as HTMLElement).style.transform = 'none';
+        (mainContent as HTMLElement).style.willChange = 'auto';
       }
     }
 
@@ -46,7 +51,9 @@ const MobileOptimizedNavigation: React.FC = () => {
       document.body.style.overflow = 'unset';
       const mainContent = document.querySelector('.main-content');
       if (mainContent) {
-        mainContent.classList.remove('blur-sm');
+        (mainContent as HTMLElement).style.filter = 'none';
+        (mainContent as HTMLElement).style.transform = 'none';
+        (mainContent as HTMLElement).style.willChange = 'auto';
       }
     };
   }, [isMobileMenuOpen]);
@@ -215,34 +222,26 @@ const MobileOptimizedNavigation: React.FC = () => {
         {isMobileMenuOpen && isMobile && (
           <>
             {/* Backdrop */}
-            <motion.div
-              className="fixed inset-0 bg-black/70 backdrop-blur-md z-[60]"
-              initial={{ opacity: 0 }}
-              animate={{ opacity: 1 }}
-              exit={{ opacity: 0 }}
-              transition={{ duration: hasReducedMotion ? 0.1 : 0.3 }}
+            <div
+              className="fixed inset-0 bg-black/70 z-[60] transition-opacity duration-200 ease-out"
+              style={{ backdropFilter: 'blur(4px)' }}
               onClick={() => setIsMobileMenuOpen(false)}
             />
             
             {/* Menu Panel */}
-            <motion.div
+            <div
               className="
                 fixed top-12 left-4 right-4 z-[70]
                 bg-black border border-white/30 rounded-xl
                 p-6 shadow-2xl
+                transition-all duration-200 ease-out
               "
-              initial={{ opacity: 0, y: -20, scale: 0.95 }}
-              animate={{ opacity: 1, y: 0, scale: 1 }}
-              exit={{ opacity: 0, y: -20, scale: 0.95 }}
-              transition={{ 
-                duration: hasReducedMotion ? 0.1 : 0.3,
-                ease: "easeOut"
-              }}
+              style={{ willChange: 'auto' }}
               onClick={(e) => e.stopPropagation()}
             >
               <div className="space-y-4">
                 {navigationItems.map((item, index) => (
-                  <motion.button
+                  <button
                     key={item.id}
                     onClick={() => handleNavClick(item.href)}
                     className="
@@ -254,18 +253,12 @@ const MobileOptimizedNavigation: React.FC = () => {
                       touch-manipulation
                     "
                     style={{ minHeight: '52px' }}
-                    initial={{ opacity: 0, x: -20 }}
-                    animate={{ opacity: 1, x: 0 }}
-                    transition={{ 
-                      duration: hasReducedMotion ? 0.1 : 0.3,
-                      delay: hasReducedMotion ? 0 : index * 0.1 
-                    }}
                   >
                     {item.label}
-                  </motion.button>
+                  </button>
                 ))}
                 
-                <motion.button
+                <button
                   onClick={() => handleNavClick('/contact')}
                   className="
                     w-full bg-white text-black font-body font-semibold
@@ -275,17 +268,11 @@ const MobileOptimizedNavigation: React.FC = () => {
                     mt-6 touch-manipulation
                   "
                   style={{ minHeight: '52px' }}
-                  initial={{ opacity: 0, y: 20 }}
-                  animate={{ opacity: 1, y: 0 }}
-                  transition={{ 
-                    duration: hasReducedMotion ? 0.1 : 0.4,
-                    delay: hasReducedMotion ? 0 : 0.2 
-                  }}
                 >
                   Get Started
-                </motion.button>
+                </button>
               </div>
-            </motion.div>
+            </div>
           </>
         )}
       </AnimatePresence>

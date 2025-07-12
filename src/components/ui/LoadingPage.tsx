@@ -42,34 +42,27 @@ const LoadingPage: React.FC<LoadingPageProps> = ({
   }, [duration, onLoadingComplete]);
 
   return (
-    <div className="fixed inset-0 z-[9999] bg-black flex items-center justify-center">
+    <div className="fixed inset-0 z-[9999] bg-black flex items-center justify-center" style={{ willChange: 'auto' }}>
       <div className="flex flex-col items-center justify-center">
         
         {/* Logo - Using the actual logo image */}
-        <motion.div
-          className="mb-12"
-          initial={{ opacity: 0 }}
-          animate={{ opacity: 1 }}
-          transition={{ duration: 0.5 }}
-        >
+        <div className="mb-12">
           <img 
             src="/logo.png" 
             alt="INSURX" 
-            className="loading-logo w-auto object-contain mx-auto"
+            className="loading-logo w-auto object-contain mx-auto opacity-100"
             style={{ 
               height: getLogoSize(),
               maxHeight: getLogoSize() 
             }}
           />
-        </motion.div>
+        </div>
 
         {/* Progress Bar - Thin and professional */}
         <div className="w-48 h-0.5 bg-white/20 rounded-full overflow-hidden">
-          <motion.div
-            className="h-full bg-white rounded-full"
-            initial={{ width: '0%' }}
-            animate={{ width: `${progress}%` }}
-            transition={{ duration: 0.1, ease: "easeOut" }}
+          <div
+            className="h-full bg-white rounded-full transition-all duration-100 ease-out"
+            style={{ width: `${progress}%` }}
           />
         </div>
 

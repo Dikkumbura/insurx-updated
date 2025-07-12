@@ -88,6 +88,41 @@ html, body {
   body {
     min-height: 100vh !important;
   }
+  
+  /* Mobile-specific performance optimizations to prevent shake */
+  * {
+    backface-visibility: hidden !important;
+    -webkit-backface-visibility: hidden !important;
+    will-change: auto !important;
+  }
+  
+  /* Prevent blur transition shake */
+  .main-content {
+    backface-visibility: hidden !important;
+    -webkit-backface-visibility: hidden !important;
+  }
+  
+  /* Optimize transitions for mobile */
+  .transition-all {
+    transition-duration: 0.15s !important;
+  }
+  
+  /* Mobile navigation blur optimization */
+  .main-content.blur-transition {
+    transition: filter 0.15s ease-out !important;
+    transform: translateZ(0) !important;
+  }
+  
+  /* Prevent loading page flash */
+  .loading-logo {
+    will-change: auto !important;
+  }
+  
+  /* Optimize page transitions */
+  .page-transition {
+    backface-visibility: hidden !important;
+    -webkit-backface-visibility: hidden !important;
+  }
 }
 
 /* Desktop/tablet - keep everything as is */
