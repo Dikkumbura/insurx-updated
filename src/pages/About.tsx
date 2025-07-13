@@ -5,12 +5,43 @@ import { useNavigate } from 'react-router-dom';
 import { ThreeJSHero } from '../components/ui/ThreeJSHero';
 import MobileOptimizedNavigation from '../components/navigation/MobileOptimizedNavigation';
 import MobileOptimizedText from '../components/ui/MobileOptimizedText';
+import Footer from '../components/ui/Footer';
+import SEOHead from '../components/ui/SEOHead';
 
 const About: React.FC = () => {
   const navigate = useNavigate();
   
+  const aboutStructuredData = {
+    "@context": "https://schema.org",
+    "@type": "Organization",
+    "name": "InsurX",
+    "description": "Insurance AI company founded by industry professionals to eliminate technology gaps holding agencies back",
+    "founders": [
+      {
+        "@type": "Person",
+        "name": "Stephanie Belote",
+        "jobTitle": "Co-Founder & Chief Visionary Officer"
+      },
+      {
+        "@type": "Person", 
+        "name": "Kavindu Lakshan",
+        "jobTitle": "Co-Founder & Chief Technology Officer"
+      }
+    ],
+    "url": "https://insurx.com/about",
+    "sameAs": ["https://insurx.com"]
+  };
+  
   return (
-    <div className="min-h-screen text-white relative">
+    <>
+      <SEOHead
+        title="About InsurX - AI Insurance Revolution | Meet Our Team"
+        description="Meet the insurance professionals behind InsurX who built the AI platform helping agencies dominate their markets. Learn about our mission to eliminate technology gaps in insurance."
+        keywords="InsurX team, insurance AI company, Stephanie Belote, Kavindu Lakshan, insurance technology, AI automation founders"
+        url="https://insurx.com/about"
+        structuredData={aboutStructuredData}
+      />
+    <div className="min-h-screen text-white relative flex flex-col">
       {/* Solid Black Background Layer - Bottommost */}
       <div className="fixed inset-0 w-full h-full bg-black z-[-20]"></div>
       
@@ -22,7 +53,7 @@ const About: React.FC = () => {
       
       <MobileOptimizedNavigation />
       
-      <div className="main-content transition-all duration-300 ease-in-out relative z-10">
+      <div className="main-content transition-all duration-300 ease-in-out relative z-10 flex-1">
         {/* Hero Section */}
         <section className="pt-32 pb-20 px-4 sm:px-6 lg:px-12">
           <div className="max-w-7xl mx-auto text-center">
@@ -32,9 +63,9 @@ const About: React.FC = () => {
               transition={{ duration: 0.6, ease: "easeOut" }}
             >
               <MobileOptimizedText
-                variant="hero-title"
+                variant="section-title"
                 as="h1"
-                className="mb-6 font-heading font-bold"
+                className="mb-6 font-heading font-bold text-3xl md:text-4xl lg:text-5xl"
               >
                 The Insurance AI Revolution Starts Here
               </MobileOptimizedText>
@@ -45,9 +76,9 @@ const About: React.FC = () => {
               transition={{ duration: 0.6, delay: 0.2, ease: "easeOut" }}
             >
               <MobileOptimizedText
-                variant="hero-subtitle"
+                variant="section-subtitle"
                 as="p"
-                className="max-w-4xl mx-auto leading-relaxed"
+                className="max-w-4xl mx-auto leading-relaxed text-base md:text-lg lg:text-xl"
               >
                 We're not just another tech company. We're insurance professionals who got tired of watching great agencies struggle with outdated systems. So we built the AI platform that's helping agencies across the country dominate their markets.
               </MobileOptimizedText>
@@ -358,11 +389,11 @@ const About: React.FC = () => {
             </motion.div>
           </div>
         </section>
-
-        {/* Footer spacing */}
-        <div className="h-20"></div>
       </div>
+      
+      <Footer />
     </div>
+    </>
   );
 };
 

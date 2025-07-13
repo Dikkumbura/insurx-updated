@@ -3,8 +3,26 @@ import { motion } from 'framer-motion';
 import { ThreeJSHero } from '../components/ui/ThreeJSHero';
 import MobileOptimizedNavigation from '../components/navigation/MobileOptimizedNavigation';
 import MobileOptimizedText from '../components/ui/MobileOptimizedText';
+import Footer from '../components/ui/Footer';
+import SEOHead from '../components/ui/SEOHead';
 
 const Contact: React.FC = () => {
+  const contactStructuredData = {
+    "@context": "https://schema.org",
+    "@type": "ContactPage",
+    "name": "Contact InsurX",
+    "description": "Schedule your personalized AI strategy session with InsurX experts",
+    "provider": {
+      "@type": "Organization",
+      "name": "InsurX",
+      "contactPoint": {
+        "@type": "ContactPoint",
+        "contactType": "sales",
+        "availableLanguage": "English"
+      }
+    }
+  };
+
   useEffect(() => {
     // Load Calendly script if it's not already loaded
     const script = document.createElement('script');
@@ -26,7 +44,15 @@ const Contact: React.FC = () => {
   }, []);
 
   return (
-    <div className="min-h-screen text-white relative">
+    <>
+      <SEOHead
+        title="Contact InsurX - Schedule Your AI Strategy Session | Free Consultation"
+        description="Schedule your personalized AI strategy session with InsurX experts. Get custom ROI projections and implementation timeline for your insurance agency in 30 minutes."
+        keywords="contact InsurX, AI strategy session, insurance consultation, schedule demo, insurance automation consultation"
+        url="https://insurx.com/contact"
+        structuredData={contactStructuredData}
+      />
+    <div className="min-h-screen text-white relative flex flex-col">
       {/* Solid Black Background Layer - Bottommost */}
       <div className="fixed inset-0 w-full h-full bg-black z-[-20]"></div>
       
@@ -38,7 +64,7 @@ const Contact: React.FC = () => {
       
       <MobileOptimizedNavigation />
       
-      <div className="main-content transition-all duration-300 ease-in-out relative z-10">
+      <div className="main-content transition-all duration-300 ease-in-out relative z-10 flex-1">
         {/* Hero Section */}
         <section className="pt-32 pb-12 px-4 sm:px-6 lg:px-12">
           <div className="max-w-7xl mx-auto text-center">
@@ -48,9 +74,9 @@ const Contact: React.FC = () => {
               transition={{ duration: 0.6, ease: "easeOut" }}
             >
               <MobileOptimizedText
-                variant="hero-title"
+                variant="section-title"
                 as="h1"
-                className="mb-6 font-heading font-bold"
+                className="mb-6 font-heading font-bold text-3xl md:text-4xl lg:text-5xl"
               >
                 Ready to Transform Your Agency?
               </MobileOptimizedText>
@@ -61,9 +87,9 @@ const Contact: React.FC = () => {
               transition={{ duration: 0.6, delay: 0.2, ease: "easeOut" }}
             >
               <MobileOptimizedText
-                variant="hero-subtitle"
+                variant="section-subtitle"
                 as="p"
-                className="max-w-4xl mx-auto leading-relaxed mb-8"
+                className="max-w-4xl mx-auto leading-relaxed mb-8 text-base md:text-lg lg:text-xl"
               >
                 Schedule your personalized AI strategy session and discover exactly how our solutions will increase your revenue, reduce costs, and give you the competitive advantage you need.
               </MobileOptimizedText>
@@ -101,7 +127,7 @@ const Contact: React.FC = () => {
                 <MobileOptimizedText
                   variant="section-title"
                   as="h2"
-                  className="mb-6 sm:mb-8 font-heading font-bold leading-tight"
+                  className="mb-6 sm:mb-8 font-heading font-bold leading-tight text-2xl md:text-3xl lg:text-4xl"
                 >
                   Your Competitors Are Already Using AI
                   <span className="font-heading text-gray-300 block">Don't Get Left Behind</span>
@@ -110,7 +136,7 @@ const Contact: React.FC = () => {
                 <MobileOptimizedText
                   variant="section-subtitle"
                   as="p"
-                  className="leading-relaxed mb-8 sm:mb-12"
+                  className="leading-relaxed mb-8 sm:mb-12 text-sm md:text-base lg:text-lg"
                 >
                   Every day you wait is revenue lost to agencies already leveraging AI. Schedule your personalized strategy session and discover exactly how our solutions will transform your agency.
                 </MobileOptimizedText>
@@ -162,7 +188,7 @@ const Contact: React.FC = () => {
               <MobileOptimizedText
                 variant="section-title"
                 as="h2"
-                className="mb-6 font-heading font-bold"
+                className="mb-6 font-heading font-bold text-2xl md:text-3xl lg:text-4xl"
               >
                 What to Expect in Your Call
               </MobileOptimizedText>
@@ -219,7 +245,10 @@ const Contact: React.FC = () => {
           </div>
         </section>
       </div>
+      
+      <Footer />
     </div>
+    </>
   );
 };
 

@@ -10,6 +10,8 @@ html, body {
 
 #root {
   min-height: 100vh;
+  display: flex;
+  flex-direction: column;
 }
 
 /* Mobile Background Animations */
@@ -80,8 +82,12 @@ html, body {
   
   /* Mobile scroll behavior */
   html {
-    scroll-behavior: smooth !important;
     -webkit-overflow-scrolling: touch !important;
+  }
+  
+  /* Only apply smooth scrolling to specific scroll actions, not navigation */
+  html.smooth-scroll {
+    scroll-behavior: smooth !important;
   }
   
   /* Prevent layout shift */

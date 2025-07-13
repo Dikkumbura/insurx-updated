@@ -29,7 +29,30 @@
     <link rel="icon" type="image/png" sizes="32x32" href="/logo.png" />
     <link rel="icon" type="image/png" sizes="16x16" href="/logo.png" />
     
-    <title>INSURX</title>
+    <!-- Web App Manifest -->
+    <link rel="manifest" href="/manifest.json" />
+    
+    <!-- Basic SEO Meta Tags (will be overridden by React Helmet) -->
+    <meta name="description" content="Transform your insurance agency with cutting-edge AI solutions. Boost conversions by 25% and save 15+ hours weekly." />
+    <meta name="keywords" content="insurance AI, automation, agency software, InsurX" />
+    <meta name="author" content="InsurX" />
+    <meta name="robots" content="index, follow" />
+    
+    <!-- Open Graph Meta Tags -->
+    <meta property="og:title" content="InsurX - AI-Powered Insurance Automation Platform" />
+    <meta property="og:description" content="Transform your insurance agency with cutting-edge AI solutions" />
+    <meta property="og:image" content="https://insurx.com/logo.png" />
+    <meta property="og:url" content="https://insurx.com" />
+    <meta property="og:type" content="website" />
+    <meta property="og:site_name" content="InsurX" />
+    
+    <!-- Twitter Card Meta Tags -->
+    <meta name="twitter:card" content="summary_large_image" />
+    <meta name="twitter:title" content="InsurX - AI Insurance Automation" />
+    <meta name="twitter:description" content="Transform your insurance agency with AI" />
+    <meta name="twitter:image" content="https://insurx.com/logo.png" />
+    
+    <title>InsurX - AI-Powered Insurance Automation Platform</title>
     
     <!-- Critical CSS for above-the-fold content -->
     <style>
@@ -127,5 +150,27 @@
         100% { transform: rotate(360deg); }
       }
     </style>
+
+<script type="text/javascript">
+  (function(d, t) {
+      var v = d.createElement(t), s = d.getElementsByTagName(t)[0];
+      v.onload = function() {
+        window.voiceflow.chat.load({
+          verify: { projectID: '67c99e03183f1d64550a81a6' },
+          url: 'https://general-runtime.voiceflow.com',
+          versionID: 'production',
+          voice: {
+            url: "https://runtime-api.voiceflow.com"
+          },
+          assistant: {
+            stylesheet:"data:text/css;base64,LyogTEFVTkNIRVIgQlVUVE9OICovCi52ZnJjLWxhdW5jaGVyIHsKICBiYWNrZ3JvdW5kOiAjMDAwMDAwICFpbXBvcnRhbnQ7CiAgYm94LXNoYWRvdzogMCA0cHggMjRweCByZ2JhKDAsIDAsIDAsIDAuMykgIWltcG9ydGFudDsKICBib3JkZXI6IDFweCBzb2xpZCByZ2JhKDI1NSwgMjU1LCAyNTUsIDAuMSkgIWltcG9ydGFudDsKfQoKLnZmcmMtbGF1bmNoZXI6aG92ZXIgewogIGJhY2tncm91bmQ6ICMxYTFhMWEgIWltcG9ydGFudDsKICB0cmFuc2Zvcm06IHNjYWxlKDEuMDUpICFpbXBvcnRhbnQ7Cn0KCi8qIENIQVQgT1ZFUkxBWSAqLwoudmZyYy1jaGF0LS1vdmVybGF5IHsKICBib3gtc2hhZG93OiAwIDhweCAzMnB4IHJnYmEoMCwgMCwgMCwgMC40KSAhaW1wb3J0YW50OwogIGJvcmRlcjogMXB4IHNvbGlkIHJnYmEoMjU1LCAyNTUsIDI1NSwgMC4xKSAhaW1wb3J0YW50Owp9CgovKiBIRUFERVIgKi8KLnZmcmMtaGVhZGVyIHsKICBiYWNrZ3JvdW5kOiAjMDAwMDAwICFpbXBvcnRhbnQ7CiAgYm9yZGVyLWJvdHRvbTogMXB4IHNvbGlkIHJnYmEoMjU1LCAyNTUsIDI1NSwgMC4xKSAhaW1wb3J0YW50Owp9CgoudmZyYy1hc3Npc3RhbnQtaW5mby0tdGl0bGUgewogIGNvbG9yOiAjZmZmZmZmICFpbXBvcnRhbnQ7CiAgZm9udC13ZWlnaHQ6IDYwMCAhaW1wb3J0YW50Owp9CgoudmZyYy1hc3Npc3RhbnQtaW5mby0tZGVzY3JpcHRpb24gewogIGNvbG9yOiByZ2JhKDI1NSwgMjU1LCAyNTUsIDAuNykgIWltcG9ydGFudDsKfQoKLnZmcmMtaGVhZGVyIC52ZnJjLWljb24gewogIGNvbG9yOiAjZmZmZmZmICFpbXBvcnRhbnQ7Cn0KCi8qIENIQVQgQk9EWSAqLwoudmZyYy1jaGF0IHsKICBiYWNrZ3JvdW5kOiAjMGEwYTBhICFpbXBvcnRhbnQ7Cn0KCi52ZnJjLWNoYXQtLWRpYWxvZyB7CiAgYmFja2dyb3VuZDogIzBhMGEwYSAhaW1wb3J0YW50Owp9CgovKiBTRVNTSU9OIFRJTUUgJiBTVEFUVVMgKi8KLnZmcmMtY2hhdC0tc2Vzc2lvbi10aW1lLAoudmZyYy1jaGF0LS1zdGF0dXMgewogIGNvbG9yOiByZ2JhKDI1NSwgMjU1LCAyNTUsIDAuNSkgIWltcG9ydGFudDsKICBiYWNrZ3JvdW5kOiByZ2JhKDI1NSwgMjU1LCAyNTUsIDAuMDUpICFpbXBvcnRhbnQ7CiAgYm9yZGVyOiAxcHggc29saWQgcmdiYSgyNTUsIDI1NSwgMjU1LCAwLjEpICFpbXBvcnRhbnQ7Cn0KCi8qIEFTU0lTVEFOVCBNRVNTQUdFUyAqLwoudmZyYy1zeXN0ZW0tcmVzcG9uc2UgLnZmcmMtbWVzc2FnZSB7CiAgYmFja2dyb3VuZDogIzFhMWExYSAhaW1wb3J0YW50OwogIGNvbG9yOiAjZmZmZmZmICFpbXBvcnRhbnQ7CiAgYm9yZGVyOiAxcHggc29saWQgcmdiYSgyNTUsIDI1NSwgMjU1LCAwLjEpICFpbXBvcnRhbnQ7Cn0KCi52ZnJjLXN5c3RlbS1yZXNwb25zZS0taW5kaWNhdG9yIHsKICBiYWNrZ3JvdW5kOiAjMWExYTFhICFpbXBvcnRhbnQ7CiAgYm9yZGVyOiAxcHggc29saWQgcmdiYSgyNTUsIDI1NSwgMjU1LCAwLjEpICFpbXBvcnRhbnQ7Cn0KCi8qIFVTRVIgTUVTU0FHRVMgKi8KLnZmcmMtdXNlci1yZXNwb25zZSAudmZyYy1tZXNzYWdlIHsKICBiYWNrZ3JvdW5kOiAjMDAwMDAwICFpbXBvcnRhbnQ7CiAgY29sb3I6ICNmZmZmZmYgIWltcG9ydGFudDsKICBib3JkZXI6IDFweCBzb2xpZCByZ2JhKDI1NSwgMjU1LCAyNTUsIDAuMikgIWltcG9ydGFudDsKfQoKLyogVElNRVNUQU1QUyAqLwoudmZyYy10aW1lc3RhbXAgewogIGNvbG9yOiByZ2JhKDI1NSwgMjU1LCAyNTUsIDAuNCkgIWltcG9ydGFudDsKfQoKLyogQlVUVE9OUyAqLwoudmZyYy1idXR0b24gewogIGJhY2tncm91bmQ6ICMwMDAwMDAgIWltcG9ydGFudDsKICBjb2xvcjogI2ZmZmZmZiAhaW1wb3J0YW50OwogIGJvcmRlcjogMXB4IHNvbGlkIHJnYmEoMjU1LCAyNTUsIDI1NSwgMC4zKSAhaW1wb3J0YW50OwogIHRyYW5zaXRpb246IGFsbCAwLjNzIGVhc2UgIWltcG9ydGFudDsKfQoKLnZmcmMtYnV0dG9uOmhvdmVyIHsKICBiYWNrZ3JvdW5kOiAjZmZmZmZmICFpbXBvcnRhbnQ7CiAgY29sb3I6ICMwMDAwMDAgIWltcG9ydGFudDsKICB0cmFuc2Zvcm06IHRyYW5zbGF0ZVkoLTFweCkgIWltcG9ydGFudDsKICBib3gtc2hhZG93OiAwIDRweCAxMnB4IHJnYmEoMjU1LCAyNTUsIDI1NSwgMC4xKSAhaW1wb3J0YW50Owp9CgovKiBDQVJEUyAqLwoudmZyYy1jYXJkIHsKICBiYWNrZ3JvdW5kOiAjMWExYTFhICFpbXBvcnRhbnQ7CiAgYm9yZGVyOiAxcHggc29saWQgcmdiYSgyNTUsIDI1NSwgMjU1LCAwLjEpICFpbXBvcnRhbnQ7Cn0KCi52ZnJjLWNhcmQtLWhlYWRlciB7CiAgY29sb3I6ICNmZmZmZmYgIWltcG9ydGFudDsKfQoKLnZmcmMtY2FyZC0tZGVzY3JpcHRpb24gewogIGNvbG9yOiByZ2JhKDI1NSwgMjU1LCAyNTUsIDAuNykgIWltcG9ydGFudDsKfQoKLyogQ0FST1VTRUwgQlVUVE9OUyAqLwoudmZyYy1jYXJvdXNlbC0tYnV0dG9uIHsKICBiYWNrZ3JvdW5kOiByZ2JhKDAsIDAsIDAsIDAuOCkgIWltcG9ydGFudDsKICBjb2xvcjogI2ZmZmZmZiAhaW1wb3J0YW50OwogIGJvcmRlcjogMXB4IHNvbGlkIHJnYmEoMjU1LCAyNTUsIDI1NSwgMC4yKSAhaW1wb3J0YW50Owp9CgoudmZyYy1jYXJvdXNlbC0tYnV0dG9uOmhvdmVyIHsKICBiYWNrZ3JvdW5kOiByZ2JhKDI1NSwgMjU1LCAyNTUsIDAuMSkgIWltcG9ydGFudDsKfQoKLyogRk9PVEVSICovCi52Zi1mb290ZXIgewogIGJhY2tncm91bmQ6ICMwMDAwMDAgIWltcG9ydGFudDsKICBib3JkZXItdG9wOiAxcHggc29saWQgcmdiYSgyNTUsIDI1NSwgMjU1LCAwLjEpICFpbXBvcnRhbnQ7Cn0KCi8qIElOUFVUIEZJRUxEICovCi52ZnJjLWlucHV0IHsKICBiYWNrZ3JvdW5kOiAjMWExYTFhICFpbXBvcnRhbnQ7CiAgY29sb3I6ICNmZmZmZmYgIWltcG9ydGFudDsKICBib3JkZXI6IDFweCBzb2xpZCByZ2JhKDI1NSwgMjU1LCAyNTUsIDAuMikgIWltcG9ydGFudDsKfQoKLnZmcmMtaW5wdXQ6Zm9jdXMgewogIGJvcmRlci1jb2xvcjogcmdiYSgyNTUsIDI1NSwgMjU1LCAwLjQpICFpbXBvcnRhbnQ7CiAgb3V0bGluZTogbm9uZSAhaW1wb3J0YW50OwogIGJveC1zaGFkb3c6IDAgMCAwIDJweCByZ2JhKDI1NSwgMjU1LCAyNTUsIDAuMSkgIWltcG9ydGFudDsKfQoKLnZmcmMtaW5wdXQ6OnBsYWNlaG9sZGVyIHsKICBjb2xvcjogcmdiYSgyNTUsIDI1NSwgMjU1LCAwLjQpICFpbXBvcnRhbnQ7Cn0KCi8qIFNFTkQgQlVUVE9OICovCi52ZnJjLWNoYXQtaW5wdXQtLWJ1dHRvbiB7CiAgYmFja2dyb3VuZDogdHJhbnNwYXJlbnQgIWltcG9ydGFudDsKICBjb2xvcjogI2ZmZmZmZiAhaW1wb3J0YW50Owp9CgoudmZyYy1jaGF0LWlucHV0LS1idXR0b246aG92ZXIgewogIGJhY2tncm91bmQ6IHJnYmEoMjU1LCAyNTUsIDI1NSwgMC4xKSAhaW1wb3J0YW50Owp9CgovKiBXQVRFUk1BUksgKi8KLnZmcmMtZm9vdGVyLS13YXRlcm1hcmsgewogIGNvbG9yOiByZ2JhKDI1NSwgMjU1LCAyNTUsIDAuMykgIWltcG9ydGFudDsKfQoKLnZmcmMtZm9vdGVyLS13YXRlcm1hcmsgYSB7CiAgY29sb3I6IHJnYmEoMjU1LCAyNTUsIDI1NSwgMC40KSAhaW1wb3J0YW50Owp9CgovKiBTQ1JPTExCQVIgKi8KLnZmcmMtY2hhdC0tZGlhbG9nOjotd2Via2l0LXNjcm9sbGJhciB7CiAgd2lkdGg6IDZweCAhaW1wb3J0YW50Owp9CgoudmZyYy1jaGF0LS1kaWFsb2c6Oi13ZWJraXQtc2Nyb2xsYmFyLXRyYWNrIHsKICBiYWNrZ3JvdW5kOiByZ2JhKDI1NSwgMjU1LCAyNTUsIDAuMDUpICFpbXBvcnRhbnQ7Cn0KCi52ZnJjLWNoYXQtLWRpYWxvZzo6LXdlYmtpdC1zY3JvbGxiYXItdGh1bWIgewogIGJhY2tncm91bmQ6IHJnYmEoMjU1LCAyNTUsIDI1NSwgMC4yKSAhaW1wb3J0YW50OwogIGJvcmRlci1yYWRpdXM6IDNweCAhaW1wb3J0YW50Owp9CgoudmZyYy1jaGF0LS1kaWFsb2c6Oi13ZWJraXQtc2Nyb2xsYmFyLXRodW1iOmhvdmVyIHsKICBiYWNrZ3JvdW5kOiByZ2JhKDI1NSwgMjU1LCAyNTUsIDAuMykgIWltcG9ydGFudDsKfQoKLyogQVZBVEFSICovCi52ZnJjLWF2YXRhciB7CiAgYmFja2dyb3VuZDogI2ZmZmZmZiAhaW1wb3J0YW50OwogIGJvcmRlcjogMnB4IHNvbGlkICMwMDAwMDAgIWltcG9ydGFudDsKfQoKLyogTE9BRElORyBET1RTIEFOSU1BVElPTiAqLwoudmZyYy1zeXN0ZW0tcmVzcG9uc2UtLWluZGljYXRvciBzcGFuIHsKICBiYWNrZ3JvdW5kOiAjZmZmZmZmICFpbXBvcnRhbnQ7Cn0KCi8qIFBST01QVCBNRVNTQUdFUyAqLwoudmZyYy1wcm9tcHQgewogIGJhY2tncm91bmQ6ICMwMDAwMDAgIWltcG9ydGFudDsKICBjb2xvcjogI2ZmZmZmZiAhaW1wb3J0YW50OwogIGJvcmRlcjogMXB4IHNvbGlkIHJnYmEoMjU1LCAyNTUsIDI1NSwgMC4yKSAhaW1wb3J0YW50Owp9CgovKiBJTUFHRSBTVFlMSU5HICovCi52ZnJjLWltYWdlIHsKICBib3JkZXI6IDFweCBzb2xpZCByZ2JhKDI1NSwgMjU1LCAyNTUsIDAuMSkgIWltcG9ydGFudDsKfQoKLyogTElOS1MgSU4gTUVTU0FHRVMgKi8KLnZmcmMtbWVzc2FnZSBhIHsKICBjb2xvcjogI2ZmZmZmZiAhaW1wb3J0YW50OwogIHRleHQtZGVjb3JhdGlvbjogdW5kZXJsaW5lICFpbXBvcnRhbnQ7CiAgdGV4dC1kZWNvcmF0aW9uLWNvbG9yOiByZ2JhKDI1NSwgMjU1LCAyNTUsIDAuMykgIWltcG9ydGFudDsKfQoKLnZmcmMtbWVzc2FnZSBhOmhvdmVyIHsKICB0ZXh0LWRlY29yYXRpb24tY29sb3I6IHJnYmEoMjU1LCAyNTUsIDI1NSwgMC42KSAhaW1wb3J0YW50Owp9"
+          }
+        });
+      }
+      v.src = "https://cdn.voiceflow.com/widget-next/bundle.mjs"; v.type = "text/javascript"; s.parentNode.insertBefore(v, s);
+  })(document, 'script');
+</script>
+  <div id="root"></div>
+  <script type="module" src="/src/main.tsx"></script>
   </body>
 </html>

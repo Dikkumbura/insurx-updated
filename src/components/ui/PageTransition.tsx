@@ -12,6 +12,16 @@ const PageTransition: React.FC<PageTransitionProps> = ({ children }) => {
   const [isVisible, setIsVisible] = React.useState(false);
 
   React.useEffect(() => {
+    // Reset visibility and scroll position when route changes
+    setIsVisible(false);
+    
+    // Ensure scroll is at top immediately
+    window.scrollTo({
+      top: 0,
+      left: 0,
+      behavior: 'instant'
+    });
+
     // For mobile, use immediate visibility to prevent flashing
     if (isMobile) {
       setIsVisible(true);

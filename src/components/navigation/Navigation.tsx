@@ -177,6 +177,7 @@ const CTAButton = styled(motion.button)`
 const navigationItems: NavigationItem[] = [
   { id: 'home', label: 'Home', href: '/' },
   { id: 'about', label: 'About', href: '/about' },
+  { id: 'try-agentx', label: 'Try AgentX', href: '/try-agentx' },
   { id: 'contact', label: 'Contact', href: '/contact' }
 ];
 
@@ -193,13 +194,19 @@ const Navigation: React.FC = () => {
     
     // Check if it's a page navigation (starts with /) or section scroll (starts with #)
     if (href.startsWith('/')) {
-      // Page navigation using React Router
+      // Page navigation using React Router - ensure no smooth scrolling
+      document.documentElement.classList.remove('smooth-scroll');
       navigate(href);
     } else {
-      // Smooth scroll to section
+      // Smooth scroll to section - temporarily enable smooth scrolling
+      document.documentElement.classList.add('smooth-scroll');
       const element = document.querySelector(href);
       if (element) {
         element.scrollIntoView({ behavior: 'smooth' });
+        // Remove smooth scroll class after scrolling is done
+        setTimeout(() => {
+          document.documentElement.classList.remove('smooth-scroll');
+        }, 1000);
       }
     }
   }, [navigate]);

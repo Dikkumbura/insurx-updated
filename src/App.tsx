@@ -12,6 +12,8 @@ import MobilePerformanceOptimizer from './components/ui/MobilePerformanceOptimiz
 import { ServicesProvider } from './components/services/ServicesContext';
 import ResponsiveServicesSection from './components/services/ResponsiveServicesSection';
 import ResultsSection from './components/results/ResultsSection';
+import Footer from './components/ui/Footer';
+import SEOHead from './components/ui/SEOHead';
 
 function App() {
   const [isLoading, setIsLoading] = React.useState(true);
@@ -49,14 +51,48 @@ function App() {
     );
   }
 
+  const homeStructuredData = {
+    "@context": "https://schema.org",
+    "@type": "SoftwareApplication",
+    "name": "InsurX",
+    "description": "AI-powered insurance automation platform that helps agencies increase conversion rates by 25% and save 15+ hours weekly through intelligent lead capture, customer support, and quote generation.",
+    "applicationCategory": "BusinessApplication",
+    "operatingSystem": "Web",
+    "offers": {
+      "@type": "Offer",
+      "price": "0",
+      "priceCurrency": "USD",
+      "description": "Free demo available"
+    },
+    "provider": {
+      "@type": "Organization",
+      "name": "InsurX",
+      "url": "https://insurx.com"
+    },
+    "featureList": [
+      "AI Lead Capture",
+      "24/7 Customer Support",
+      "Instant Quote Generation", 
+      "CRM Integration",
+      "Automated Workflows"
+    ]
+  };
+
   return (
     <ErrorBoundary>
+      <SEOHead
+        title="InsurX - AI-Powered Insurance Automation Platform | Boost Conversions 25%"
+        description="Transform your insurance agency with cutting-edge AI solutions. Increase lead conversion by 25%, save 15+ hours weekly with automated lead capture, customer support, and quote generation."
+        keywords="insurance AI, insurance automation, agency software, lead generation, customer support automation, quote generation, CRM integration, insurance technology, AI assistant"
+        url="https://insurx.com"
+        structuredData={homeStructuredData}
+      />
       <MobilePerformanceOptimizer>
         <ServicesProvider>
           <MobileOptimizedBackground>
-            <div className="min-h-screen text-white relative">
+            <div className="min-h-screen text-white relative flex flex-col">
           <MobileOptimizedNavigation />
-          <div className="main-content transition-all duration-300 ease-in-out">
+          <div className="main-content transition-all duration-300 ease-in-out flex-1">
 
           {/* Hero Section */}
 <section id="home" className="min-h-[60vh] sm:min-h-screen flex items-center justify-center relative z-10 px-4 sm:px-6">
@@ -345,52 +381,9 @@ function App() {
             </div>
           </section>
 
-          {/* Footer */}
-          <footer className="py-3 sm:py-8 lg:py-10 pb-6 sm:pb-10 lg:pb-12 relative z-10">
-            {/* Semi-transparent background for readability */}
-            <div className="absolute inset-0 bg-black/80 backdrop-blur-sm"></div>
-            <div className="w-full px-4 sm:px-6 lg:px-12 pb-3 sm:pb-6">
-              <div className="grid grid-cols-1 sm:grid-cols-2 gap-2 sm:gap-10 lg:gap-12 mb-3 sm:mb-8 lg:mb-10 relative z-10">
-                <div>
-                  <div className="flex items-center justify-center sm:justify-start gap-2 mb-3 sm:mb-6">
-                    <img 
-                      src="/logo.png" 
-                      alt="INSURX Logo" 
-                      className="h-6 sm:h-12 w-auto object-contain"
-                    />
-                  </div>
-                  <p className="hidden sm:block font-heading text-gray-400 italic text-sm sm:text-lg text-center sm:text-left">The Future of Insurance</p>
-                  <p className="hidden sm:block font-body text-gray-500 mt-2 sm:mt-4 leading-relaxed text-sm sm:text-base text-center sm:text-left">
-                    Revolutionizing the insurance industry with cutting-edge AI automation solutions.
-                  </p>
-                </div>
-                
-                <div>
-                  <h4 className="font-body text-white font-bold text-xs sm:text-lg mb-2 sm:mb-6 text-center sm:text-left">Solutions</h4>
-                  <ul className="flex flex-wrap gap-x-4 sm:gap-x-6 gap-y-2 font-body text-gray-400 justify-center sm:justify-start">
-                    <li><a href="#" className="font-body hover:text-white transition-colors duration-300 touch-target text-xs sm:text-sm">Chat AI</a></li>
-                    <li><a href="#" className="font-body hover:text-white transition-colors duration-300 touch-target text-xs sm:text-sm">Voice AI</a></li>
-                    <li><a href="#" className="font-body hover:text-white transition-colors duration-300 touch-target text-xs sm:text-sm">Underwriting</a></li>
-                    <li><a href="#" className="font-body hover:text-white transition-colors duration-300 touch-target text-xs sm:text-sm">Claims</a></li>
-                    <li><a href="#" className="font-body hover:text-white transition-colors duration-300 touch-target text-xs sm:text-sm">Lead Re-activation</a></li>
-                  </ul>
-                </div>
-              </div>
-              
-              <div className="flex flex-col sm:flex-row justify-between items-center pt-2 sm:pt-6 relative z-10 gap-1 sm:gap-3">
-                <p className="font-body text-gray-500 text-xs sm:text-sm text-center md:text-left">&copy; 2025 INSURX. All rights reserved.</p>
-                <div className="flex flex-row gap-3 sm:gap-6 lg:gap-8 mt-0 md:mt-0">
-                  <a href="#" className="font-body text-gray-500 hover:text-white text-xs sm:text-sm transition-colors duration-300 touch-target text-center py-0 sm:py-1">Privacy</a>
-                  <a href="#" className="font-body text-gray-500 hover:text-white text-xs sm:text-sm transition-colors duration-300 touch-target text-center py-0 sm:py-1">Terms</a>
-                  <a href="#" className="font-body text-gray-500 hover:text-white text-xs sm:text-sm transition-colors duration-300 touch-target text-center py-0 sm:py-1">Cookies</a>
-                </div>
-              </div>
-            </div>
-          </footer>
-          
-          {/* Extra padding to ensure no gap at bottom */}
-          <div className="h-2 sm:h-4 lg:h-6 bg-black/80 relative z-10"></div>
           </div>
+          
+          <Footer />
         </div>
         </MobileOptimizedBackground>
       </ServicesProvider>
