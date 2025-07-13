@@ -25,7 +25,7 @@ const SEOHead: React.FC<SEOHeadProps> = ({
   return (
     <Helmet>
       {/* Basic Meta Tags */}
-      <title>{title}</title>
+      <title></title>
       <meta name="description" content={description} />
       <meta name="keywords" content={keywords} />
       <meta name="author" content="InsurX" />
@@ -34,7 +34,7 @@ const SEOHead: React.FC<SEOHeadProps> = ({
 
       {/* Open Graph / Facebook */}
       <meta property="og:type" content={type} />
-      <meta property="og:title" content={title} />
+      <meta property="og:title" content="" />
       <meta property="og:description" content={description} />
       <meta property="og:image" content={image} />
       <meta property="og:url" content={url} />
@@ -42,7 +42,7 @@ const SEOHead: React.FC<SEOHeadProps> = ({
 
       {/* Twitter */}
       <meta name="twitter:card" content="summary_large_image" />
-      <meta name="twitter:title" content={title} />
+      <meta name="twitter:title" content="" />
       <meta name="twitter:description" content={description} />
       <meta name="twitter:image" content={image} />
 
